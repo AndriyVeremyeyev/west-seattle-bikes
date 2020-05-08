@@ -20,7 +20,7 @@ But in the future, it should be something more than just a bike store. It should
  * VisualStudio Code
  * React Native SDK
  * Node
- * Firebase or Mongo DB
+ * Firebase
  * Bootstrap
 
 ##### Additional Features
@@ -39,7 +39,7 @@ But in the future, it should be something more than just a bike store. It should
 ##### Tools for Additional Features
  * React Native SDK
  * Node
- * Firebase or Mongo DB
+ * Firebase
  * API (Bike Index, BikeWise, Mogol Conditions)
  * React hooks
 

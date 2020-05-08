@@ -126,7 +126,7 @@ The product will allow to user
  * CSS
  * React
  * Redux
- * Firebase or Mongo DB
+ * Firebase
  * Figma
  * JavaScript
 
@@ -136,6 +136,7 @@ The product will allow to user
  * CSS
  * React
  * Redux
+ * Firebase
  * Figma
  * JavaScript
  * API (Bike Index, BikeWise, Mogol Conditions)
