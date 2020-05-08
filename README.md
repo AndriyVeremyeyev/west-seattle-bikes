@@ -34,12 +34,12 @@
 
 ## About the Project
 
-## Description
+### Description
 
 West Seattle Bikes is a web store where consumers can buy bikes, bike parts, bike tools and accessories to it.
 Selling store are pretty relevant and in demand all around the world. People concentrate more and more on online shopping during quarantine and after it. 
 
-## Known Bugs
+### Known Bugs
 
 No bugs found at the current moment
 
@@ -68,6 +68,18 @@ The product will allow to user
  * Data persists in the database
 
 ### Product Roadmap
+
+ * Admin registration and admin login/sign-out to have the ability to add, modify and delete items in store
+ * Ability to upload images to website by admin 
+ * User registration and login/sign out to have the ability to add items to cart for possible purchase
+ * History of purchases in the user’s cabinet
+ * Sorting items by brands, categories, price and so on
+ * Connect to web site 3-party pay connector like PayPal connector etc for the user to pay for items in the card.
+ * Connect Bike Index API to have the possibility to see stolen bikes in the West Seattle area
+ * Connect BikeWise API to have the possibility to see incidents related to bikes in the West Seattle area
+ * Connect Mogol Conditions API to see weather conditions in the area
+ * Capability to search for bike events relates West Seattle area
+ * Capability to aggregate articles and reviews from 3-party websites to compare characteristics and quality of bikes, bike parts, etc.
 
 ### Specs
 
@@ -106,13 +118,19 @@ The product will allow to user
 
 ------------------------------
 
+### Technology
 
-## Support and contact details
+#### MVP
 
-For feedback, questions and/or ideas, please email belyybrat@gmail.com
+ * Markdown
+ * CSS
+ * React
+ * Redux
+ * Firebase or Mongo DB
+ * Figma
+ * JavaScript
 
-
-## Technology
+#### Planned
 
  * Markdown
  * CSS
@@ -120,7 +138,16 @@ For feedback, questions and/or ideas, please email belyybrat@gmail.com
  * Redux
  * Figma
  * JavaScript
+ * API (Bike Index, BikeWise, Mogol Conditions)
+ * React hooks
 
+### Contributors
+
+| Author | GitHub | Email |
+|--------|:------:|:-----:|
+| [Andriy Veremyeyev](#) | [belyybrat](#) |  [averemyeyev@gmail.com](#) |
+
+### Contact
 
 ### License
 
