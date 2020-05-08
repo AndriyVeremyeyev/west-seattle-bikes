@@ -11,3 +11,4 @@ Monday 5/8/2020 Work Schedule
 | 14:20 - 15:00 | Decided to switch to firebase: start practicing based on tap-room project |
 | 15:00 - 15:40 | Practicing with hooks |
 | 15:40 - 16:15 | Investigating how update certain property of item in firebase |
+| 16:15 - 16:45 | Attempt to refactor control class to function with using only hooks |
