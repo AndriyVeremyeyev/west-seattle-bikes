@@ -9,3 +9,4 @@ Monday 5/8/2020 Work Schedule
 | 11:20 - 12:00 | Fill README sections with an information |
 | 13:00 - 14:20 | Install MongoDB Community Server and trying to setup |
 | 14:20 - 15:00 | Decided to switch to firebase: start practicing based on tap-room project |
+| 15:00 - 15:40 | Practicing with hooks |
