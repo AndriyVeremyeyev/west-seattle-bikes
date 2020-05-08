@@ -20,13 +20,15 @@ The goal of project is create .
 ## Specifications
 
 | Spec | Input | Output |
-| :-------------     | :------------- | :------------- |
+| -------------     | ------------- | ------------- |
 |  |  |  |
 
 
-
-## Components Diagram
-
+## Wireframe
+<details>
+<summary>Expand Wireframe</summary>
+<image src="./screenshots/main-page.jpg" width="500px"/>
+</details>
 
 ## Setup/Installation Requirements
 
