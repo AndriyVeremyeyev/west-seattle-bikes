@@ -1,17 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types'
 import {useFirestore} from 'react-redux-firebase';
 
 function NewBikeForm(props){
 
-  // availability: "in stock", "in retail store", "ships to retail store"
+  // availability: "in stock", "in retail store", "ships to retail store", "not available"
   const firestore = useFirestore();
 
   const formStyle = {
     width: "300px",
   };
 
+  const [checkBoxBestSellerSelected, setCheckBoxBestSellerSelected] = useState(false);
+  const [checkBoxNewArrivalSelected, setCheckBoxNewArrivalSelected] = useState(false);
+
   const {onNewBikeCreation} = props;
+
+  const onCheckBoxBestSellerChangeStatus = () => {
+    setCheckBoxBestSellerSelected(true);
+  }
+
+  const onCheckBoxNewArrivalChangeStatus = () => {
+    setCheckBoxNewArrivalSelected(true);
+  }
 
   function addBikeToFirestore(event){
     event.preventDefault();
@@ -23,10 +34,10 @@ function NewBikeForm(props){
         color: event.target.color.value,
         size: event.target.size.value,
         price: Math.round(parseFloat(event.target.price.value)*100)/100,
-        // availability: event.target.availability.value,
+        availability: event.target.availability.value,
         quantity: parseInt(event.target.quantity.value),
-        // bestSeller: event.target.bestSeller.value,
-        // newArrival: event.target.newArrival.value,
+        bestSeller: checkBoxBestSellerSelected,
+        newArrival: checkBoxNewArrivalSelected,
         details:  event.target.details.value
       }
     );
@@ -82,7 +93,18 @@ function NewBikeForm(props){
             <option value="Large">Large</option>
             <option value="X-Large">X-Large</option>
           </select>
-        </div>             
+        </div>
+        <div className="form-group">
+          <label htmlFor="availability">
+            Availability: 
+          </label>
+          <select id="availability" name="availability">
+            <option value="In stock">In stock</option>
+            <option value="In retail store">In retail store</option>
+            <option value="Ships to retail store">Ships to retail store</option>
+            <option value="Not available">Not available</option>
+          </select>
+        </div>          
         <div className="form-group">
           <label htmlFor="price">
             Price: 
@@ -111,6 +133,18 @@ function NewBikeForm(props){
             required
           /> 
         </div>
+        <div className="form-group">
+          <label htmlFor="bestSeller">
+            BestSeller: 
+          </label>
+          <input type="checkbox" id="bestSeller" name="bestSeller" value={checkBoxBestSellerSelected} onClick={() => onCheckBoxBestSellerChangeStatus()}/>
+        </div>
+        <div className="form-group">
+          <label htmlFor="newArrival">
+            New Arrival: 
+          </label>
+          <input type="checkbox" id="newArrival" name="newArrival" value={checkBoxNewArrivalSelected} onClick={() => onCheckBoxNewArrivalChangeStatus()}/>
+        </div>         
         <div className="form-group">
           <label htmlFor="details">
             Details: 

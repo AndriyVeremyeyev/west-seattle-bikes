@@ -23,11 +23,13 @@ function BikesList(){
             color = {bike.color}
             size = {bike.size}
             price = {bike.price}
-            // availability = {bike.availability}
+            availability = {bike.availability}
             quantity = {bike.quantity}
-            // bestSeller = {bike.bestSeller}
-            // newArrival = {bike.newArrival}
+            bestSeller = {bike.bestSeller}
+            newArrival = {bike.newArrival}
             details = {bike.details}
+            id = {bike.id}
+            key = {bike.id}
           />
         })}
       </React.Fragment>
