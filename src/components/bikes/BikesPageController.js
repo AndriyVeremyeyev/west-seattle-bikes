@@ -5,7 +5,7 @@ import NewBikeForm from './NewBikeForm';
 import EditBikeForm from './EditBikeForm';
 import {withFirestore} from 'react-redux-firebase';
 
-function BikesPageController(){
+function BikesPageController(props){
 
   const [addBikeFormVisible, setAddBikeFormVisible] = useState(false); 
   const [editBikeFormVisible, setEditBikeFormVisible] = useState(false);
