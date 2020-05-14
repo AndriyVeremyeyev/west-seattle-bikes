@@ -4,7 +4,7 @@ function NewBikeForm(){
 
   return(
     <React.Fragment>
-      <h1>Bikes List</h1>
+      <h1>New Bike Form</h1>
     </React.Fragment>
   )
 }
