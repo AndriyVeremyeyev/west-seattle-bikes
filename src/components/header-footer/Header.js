@@ -12,7 +12,7 @@ function Header(props){
 
   return(
     <React.Fragment>
-      <h1>Header</h1>
+      <h1>Welcome to West Seattle Bikes</h1>
       <div style={menuStyle}>
         <div>
           <button onClick={onHomeClick}>Home</button>

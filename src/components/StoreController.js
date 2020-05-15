@@ -33,7 +33,6 @@ function StoreController(){
 
   return(
     <React.Fragment>
-      <h1>Store Controller</h1>
       <Header
         onHomeClick = {handleToggleHomePage}
         onBikesClick = {handleToggleBikesPage}

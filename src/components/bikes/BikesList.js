@@ -31,6 +31,7 @@ function BikesList(props){
             bestSeller = {bike.bestSeller}
             newArrival = {bike.newArrival}
             details = {bike.details}
+            imageUrl = {bike.imageUrl}
             id = {bike.id}
             key = {bike.id}
           />

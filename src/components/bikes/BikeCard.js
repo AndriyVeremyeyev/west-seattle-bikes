@@ -3,12 +3,13 @@ import PropTypes from 'prop-types'
 
 function BikeCard(props){
 
-  const {whenBikeClicked, model, brand, color, size, price, quantity, details, id} = props;
+  const {whenBikeClicked, model, brand, color, size, price, quantity, details, id, imageUrl} = props;
 
   return(
     <React.Fragment>
       <div onClick = {() => whenBikeClicked(id)}>
         <h1>Bike Card</h1>
+        <img src={imageUrl}></img>
         <p>{model}</p>
         <p>{brand}</p>
         <p>{color}</p>
@@ -32,7 +33,8 @@ BikeCard.propTypes = {
   quantity: PropTypes.number,
   bestSeller: PropTypes.bool,
   newArrival: PropTypes.bool,
-  details: PropTypes.string
+  details: PropTypes.string,
+  imageUrl: PropTypes.string
 }
 
 export default BikeCard;

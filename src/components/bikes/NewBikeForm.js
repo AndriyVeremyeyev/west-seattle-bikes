@@ -1,17 +1,19 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types'
 import {useFirestore} from 'react-redux-firebase';
+import firebase from '../../firebase';
+// import FileUploader from '../test/FileUploader'
 
 function NewBikeForm(props){
 
   const firestore = useFirestore();
-
   const formStyle = {
     width: "300px",
   };
-
   const [checkBoxBestSellerSelected, setCheckBoxBestSellerSelected] = useState(false);
   const [checkBoxNewArrivalSelected, setCheckBoxNewArrivalSelected] = useState(false);
+  const [files, setFiles] = useState(null);
+  const [url, setUrl] = useState('');
 
   const {onNewBikeCreation} = props;
 
@@ -23,9 +25,41 @@ function NewBikeForm(props){
     setCheckBoxNewArrivalSelected(true);
   }
 
+  const handleChange = (files) => {
+    setFiles(files);
+    console.log(files);
+    console.log(files[0]);
+  }
+
+  const handleUpload = () => {
+    let bucketName = 'bikes';
+    let file = files[0];
+    let storageRef = firebase.storage().ref(`${bucketName}/${file.name}`);
+    let uploadTask = storageRef.put(file);
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED)
+    console.log(storageRef);
+    console.log(uploadTask);
+  }
+
+  const takeUrl = () => {
+    let storageRef = firebase.storage().ref();
+    storageRef.child('bikes/'+files[0].name).getDownloadURL().then((url) => {
+      console.log(url)
+      setUrl(url);
+    })
+  }
+
+
+
   function addBikeToFirestore(event){
     event.preventDefault();
     onNewBikeCreation();
+
+    let storageRef = firebase.storage().ref();
+    storageRef.child('bikes/'+files[0].name).getDownloadURL().then((url) => {
+      console.log(url)
+    })
+
     return firestore.collection('bikes').add(
       {
         model: event.target.model.value,
@@ -37,13 +71,17 @@ function NewBikeForm(props){
         quantity: parseInt(event.target.quantity.value),
         bestSeller: checkBoxBestSellerSelected,
         newArrival: checkBoxNewArrivalSelected,
-        details:  event.target.details.value
+        details:  event.target.details.value,
+        imageUrl: url
       }
     );
   }
 
-  return(
+  return( 
     <React.Fragment>
+      <input type='file' onChange={(e) =>{handleChange(e.target.files)}}/>
+      <button onClick={handleUpload}>Upload Image</button>
+      <button onClick={takeUrl}>Assign Url</button>
       <form onSubmit={addBikeToFirestore}>
         <div className="form-group">
           <label htmlFor="model">
