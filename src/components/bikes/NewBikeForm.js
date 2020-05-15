@@ -4,7 +4,6 @@ import {useFirestore} from 'react-redux-firebase';
 
 function NewBikeForm(props){
 
-  // availability: "in stock", "in retail store", "ships to retail store", "not available"
   const firestore = useFirestore();
 
   const formStyle = {
