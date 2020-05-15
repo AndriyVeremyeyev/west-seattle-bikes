@@ -46,8 +46,8 @@ function BikesPageController(props){
         price: bike.get('price'),
         availability: bike.get('availability'),
         quantity: bike.get('quantity'),
-        // bestSeller: bike.get('bestSeller'),
-        // newArrival: bike.get('newArrival'),
+        bestSeller: bike.get('bestSeller'),
+        newArrival: bike.get('newArrival'),
         details: bike.get('details'),
         id: bike.id
       }

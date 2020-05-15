@@ -1,14 +1,16 @@
 import React from 'react';
 import BikeCard from './BikeCard';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
 import {useFirestoreConnect, isLoaded} from 'react-redux-firebase';
 
-function BikesList(){
+function BikesList(props){
 
   useFirestoreConnect([
     {collection: 'bikes'}
   ])
+
+  const {onBikeSelection} = props;
 
   const bikes = useSelector(state => state.firestore.ordered.bikes);
 
@@ -18,6 +20,7 @@ function BikesList(){
         <h1>Bikes List</h1>
         {bikes.map((bike) => {
           return <BikeCard
+            whenBikeClicked = {onBikeSelection}
             model = {bike.model}
             brand = {bike.brand}
             color = {bike.color}
@@ -43,5 +46,10 @@ function BikesList(){
     )
   }
 }
+
+BikesList.propTypes = {
+  onBikeSelection: PropTypes.func,
+}
+
 
 export default BikesList;
