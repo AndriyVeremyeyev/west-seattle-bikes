@@ -49,6 +49,7 @@ function BikesPageController(props){
         bestSeller: bike.get('bestSeller'),
         newArrival: bike.get('newArrival'),
         details: bike.get('details'),
+        imageUrl: bike.get('imageUrl'),
         id: bike.id
       }
       setSelectedBike(firestoreBike);
@@ -105,7 +106,7 @@ function BikesPageController(props){
   return(
     <React.Fragment>
       <h1>BikesPageController</h1>
-      <button onClick={handleToggleAddBikeForm}>{visibleState.buttonText}</button>
+      <button type="button" className="btn btn-secondary" onClick={handleToggleAddBikeForm}>{visibleState.buttonText}</button>
       {visibleState.component}
     </React.Fragment>
   )

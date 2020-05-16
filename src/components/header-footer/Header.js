@@ -15,10 +15,10 @@ function Header(props){
       <h1>Welcome to West Seattle Bikes</h1>
       <div style={menuStyle}>
         <div>
-          <button onClick={onHomeClick}>Home</button>
+          <button type="button" className="btn btn-secondary" onClick={onHomeClick}>Home</button>
         </div>
         <div>
-          <button onClick={onBikesClick}>Bikes</button>
+          <button type="button" className="btn btn-secondary" onClick={onBikesClick}>Bikes</button>
         </div>
       </div>
     </React.Fragment>
