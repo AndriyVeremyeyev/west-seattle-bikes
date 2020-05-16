@@ -3,8 +3,9 @@ import StoreController from './StoreController';
 
 function App() {
   return (
-    <StoreController/>
-    // <h1>Vasya</h1>
+    <div className='container'>
+      <StoreController/>
+    </div>
   );
 }
 

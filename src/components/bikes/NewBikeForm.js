@@ -2,15 +2,20 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types'
 import {useFirestore} from 'react-redux-firebase';
 import firebase from '../../firebase';
-// import FileUploader from '../test/FileUploader'
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 function NewBikeForm(props){
 
   const firestore = useFirestore();
+
   const formStyle = {
     width: "400px",
   };
+  const imageLoaderStyle = {
+    marginTop: '50px',
+    marginBottom: '50px'
+  }
+
   const [checkBoxBestSellerSelected, setCheckBoxBestSellerSelected] = useState(false);
   const [checkBoxNewArrivalSelected, setCheckBoxNewArrivalSelected] = useState(false);
   const [files, setFiles] = useState(null);
@@ -32,27 +37,6 @@ function NewBikeForm(props){
     console.log(files);
     console.log(files[0]);
   }
-
-  // const handleUpload = () => {
-  //   let bucketName = 'bikes';
-  //   let file = files[0];
-  //   let storageRef = firebase.storage().ref(`${bucketName}/${file.name}`);
-  //   let uploadTask = storageRef.put(file);
-  //   uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED)
-  //   // console.log(storageRef);
-  //   // console.log(uploadTask);
-  // }
-
-  // const takeUrl = () => {
-  //   let storageRef = firebase.storage().ref();
-  //   let spaceRef = storageRef.child('bikes/'+files[0].name)
-  //   spaceRef.getDownloadURL().then((url) => {
-  //     console.log(url)
-  //     setUrl(url);
-  //   }).catch((error)=> {
-  //     console.log(error);
-  //   });
-  // }
 
   const handleUpload = () => {
     const image = files[0];
@@ -83,12 +67,14 @@ function NewBikeForm(props){
         color: event.target.color.value,
         size: event.target.size.value,
         price: Math.round(parseFloat(event.target.price.value)*100)/100,
+        category: event.target.category.value,
         availability: event.target.availability.value,
         quantity: parseInt(event.target.quantity.value),
         bestSeller: checkBoxBestSellerSelected,
         newArrival: checkBoxNewArrivalSelected,
         details:  event.target.details.value,
-        imageUrl: url
+        imageUrl: url,
+        timeOpen: firestore.FieldValue.serverTimestamp()
       }
     );
   }
@@ -96,21 +82,18 @@ function NewBikeForm(props){
   return( 
     <React.Fragment>
       <div  className="container">
-        <ProgressBar
-        now={progress}
-        />
-        <div className="form-group" >
+        <div style={imageLoaderStyle}>
           <input 
-            type='file' 
-            onChange={(e) =>{handleChange(e.target.files)}}
+              type='file' 
+              onChange={(e) =>{handleChange(e.target.files)}}
           />
+          <br/>
+          <br/>
+          <ProgressBar now={progress}/>
+          <br/>
+          <button className="ui button" onClick={handleUpload}>Upload Image</button>
+          <img src={url} width="400" alt=""/>
         </div>
-      <button className="ui button" onClick={handleUpload}>Upload Image</button>
-      {/* <button onClick={takeUrl}>Assign Url</button> */}
-      <br/>
-      {/* <img src={url || 'http://via.placeholder.com/400x300'} alt='Uploaded' height="300" width="400"/> */}
-
-      <img src={url} width="400"/>
         <form  onSubmit={addBikeToFirestore}>
           <div className="form-group">
             <label htmlFor="model">
@@ -142,16 +125,14 @@ function NewBikeForm(props){
             <label htmlFor="color">
               Color: 
             </label>
-            <select
+            <input
               className="form-control"
-              style={formStyle}  
-              id="color" 
-              name="color">
-              <option value="Satin">Satin</option>
-              <option value="Cast Berry">Cast Berry</option>
-              <option value="Black">Black</option>
-              <option value="Mint">Mint</option>
-            </select>
+              style={formStyle}
+              type='text'
+              name='color'
+              placeholder='Gloss Black'
+              required
+            /> 
           </div>
           <div className="form-group">
             <label htmlFor="size">
@@ -200,6 +181,21 @@ function NewBikeForm(props){
             /> 
           </div>
           <div className="form-group">
+            <label htmlFor="category">
+              Category: 
+            </label>
+            <select
+              className="form-control"
+              style={formStyle}  
+              id="category" 
+              name="category">
+              <option value="Road">Road</option>
+              <option value="Mountain">Mountain</option>
+              <option value="Cyclocross">Cyclocross</option>
+              <option value="Commuter/Urban">Commuter/Urban</option>
+            </select>
+          </div>          
+          <div className="form-group">
             <label htmlFor="quantity">
               Quantity: 
             </label>
@@ -247,7 +243,7 @@ function NewBikeForm(props){
             </label>
             <textarea
               className="form-control"
-              rows="3"
+              rows="10"
               style={formStyle}
               type='textarea'
               name='details'

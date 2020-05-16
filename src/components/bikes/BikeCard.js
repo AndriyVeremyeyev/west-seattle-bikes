@@ -14,10 +14,10 @@ function BikeCard(props){
     <React.Fragment>
       <div onClick = {() => whenBikeClicked(id)}>
         <h1>Bike Card</h1>
-        <img style={imageStyle} src={imageUrl}/>
+        <img style={imageStyle} src={imageUrl} alt=""/>
         <p>{model}</p>
         <p>{brand}</p>
-        <p>{price}$</p>
+        <p>{price.toFixed(2)}$</p>
       </div>
     </React.Fragment>
   )
@@ -30,6 +30,7 @@ BikeCard.propTypes = {
   // color: PropTypes.string,
   // size: PropTypes.string,
   price: PropTypes.number,
+  // category: PropTypes.string,
   // availability: PropTypes.string,
   // quantity: PropTypes.number,
   // bestSeller: PropTypes.bool,

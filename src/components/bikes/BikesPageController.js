@@ -44,6 +44,7 @@ function BikesPageController(props){
         color: bike.get('color'),
         size: bike.get('size'),
         price: bike.get('price'),
+        category: bike.get('category'),
         availability: bike.get('availability'),
         quantity: bike.get('quantity'),
         bestSeller: bike.get('bestSeller'),
