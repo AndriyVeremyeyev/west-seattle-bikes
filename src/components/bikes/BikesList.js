@@ -15,6 +15,7 @@ function BikesList(props){
   const bikeListStyle = {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr',
+    gap: '30px'
   }
 
   const bikes = useSelector(state => state.firestore.ordered.bikes);

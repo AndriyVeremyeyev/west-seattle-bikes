@@ -7,17 +7,22 @@ function BikeCard(props){
   const {whenBikeClicked, model, brand, price, id, imageUrl} = props;
 
   const imageStyle = {
-    width: '300px'
+    width: '250px'
+  }
+  const imageBlockStyle = {
+    height: '160px'
   }
 
   return(
     <React.Fragment>
-      <div onClick = {() => whenBikeClicked(id)}>
-        <h1>Bike Card</h1>
-        <img style={imageStyle} src={imageUrl} alt=""/>
-        <p>{model}</p>
+      <div>
+        <div style={imageBlockStyle}>
+          <img style={imageStyle} src={imageUrl} alt=""/>
+        </div>
+        <h3>{model}</h3>
         <p>{brand}</p>
         <p>{price.toFixed(2)}$</p>
+        <button onClick = {() => whenBikeClicked(id)}>View Product</button>
       </div>
     </React.Fragment>
   )
