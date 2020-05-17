@@ -36,6 +36,7 @@ return(
     <Link to='/bikes'>
       <button type="button" className="btn btn-secondary">Bikes</button>
     </Link>
+    <h1>Welcome to West Seattle Bikes</h1>
   </React.Fragment>
 )
 }

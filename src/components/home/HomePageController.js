@@ -7,7 +7,7 @@ import BikeDetails from '../bikes/BikeDetails';
 
 function HomePageController(props){
 
-  const [selectedBike, setSelectedBike] = useState(null);
+  const [homeSelectedBike, setHomeSelectedBike] = useState(null);
 
   const handleChangingSelectedBike = (id) => {
     props.firestore.get({collection: 'bikes', doc: id}).then((bike) => {
@@ -26,17 +26,15 @@ function HomePageController(props){
         imageUrl: bike.get('imageUrl'),
         id: bike.id
       }
-      setSelectedBike(firestoreBike);
+      setHomeSelectedBike(firestoreBike);
     })
   }
 
-  console.log(selectedBike);
-
   const setCurrentlyVisibleState = () => {  
-  if (selectedBike != null){
+  if (homeSelectedBike != null){
       return (
         <BikeDetails
-          bike = {selectedBike}
+          bike = {homeSelectedBike}
         />
       )
     } else {

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import BikesList from './BikesList';
+import BikesListTest from './BikesListTest';
+// import BikesList from './BikesList';
 import BikeDetails from './BikeDetails';
 import NewBikeForm from './NewBikeForm';
 import EditBikeForm from './EditBikeForm';
@@ -94,7 +95,8 @@ function BikesPageController(props){
     }  else {
       return {
         component: 
-        <BikesList
+        <BikesListTest
+        // <BikesList
           onBikeSelection = {handleChangingSelectedBike}
         />,
         buttonText: "Add Bike"

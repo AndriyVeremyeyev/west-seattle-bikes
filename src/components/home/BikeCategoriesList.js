@@ -23,11 +23,6 @@ function BikeCategoriesList(props){
   let bestSellerBikes;
   let newArrivalBikes;
 
-  if (isLoaded(bikes)){
-    bestSellerBikes = bikes.filter (x => x.bestSeller === true);
-    newArrivalBikes = bikes.filter (x => x.newArrival === true);
-  }
-
   const bikeCard = (bike) => {
     return (<BikeCard
       whenBikeClicked = {onBikeSelection}
@@ -49,10 +44,9 @@ function BikeCategoriesList(props){
     )
   }
 
-  console.log(bestSellerBikes);
-  console.log(newArrivalBikes);
-
   if (isLoaded(bikes)){
+    bestSellerBikes = bikes.filter (x => x.bestSeller === true);
+    newArrivalBikes = bikes.filter (x => x.newArrival === true);
     return(
       <React.Fragment>
         <h1>Best Sellers</h1>

@@ -9,6 +9,7 @@ function BikesList(props){
   useFirestoreConnect([
     {collection: 'bikes'}
   ])
+  const bikes = useSelector(state => state.firestore.ordered.bikes);
 
   const {onBikeSelection} = props;
 
@@ -18,7 +19,6 @@ function BikesList(props){
     gap: '30px'
   }
 
-  const bikes = useSelector(state => state.firestore.ordered.bikes);
 
   if (isLoaded(bikes)){
     return(
