@@ -142,10 +142,15 @@ function NewPartForm(props){
             style={formStyle}  
             id="category" 
             name="category">
-            <option value="Road">Road</option>
-            <option value="Mountain">Mountain</option>
-            <option value="Cyclocross">Cyclocross</option>
-            <option value="Commuter/Urban">Commuter/Urban</option>
+            <option value="Brakes/Levers/Pads">Brakes/Levers/Pads</option>
+            <option value="Cassettes/Freewheels">Cassettes/Freewheels</option>
+            <option value="Cranksets">Cranksets</option>
+            <option value="Derailleurs">Derailleurs</option>
+            <option value="Handlebars">Handlebars</option>
+            <option value="Pedals">Pedals</option>
+            <option value="Saddles">Saddles</option>
+            <option value="Groupsets">Groupsets</option>
+            <option value="Other">Other</option>
           </select>
         </div>          
         <div className="form-group">

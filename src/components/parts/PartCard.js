@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 
 function BikeCard(props){
 
-  const {name, brand, price, details, id, imageUrl} = props;
+  const {name, brand, price, category, id, imageUrl} = props;
 
   const imageStyle = {
-    width: '250px'
+    width: '150px'
   }
   const imageBlockStyle = {
-    height: '160px'
+    height: '180px'
   }
 
   return(
@@ -18,10 +18,10 @@ function BikeCard(props){
         <div style={imageBlockStyle}>
           <img style={imageStyle} src={imageUrl} alt=""/>
         </div>
-        <h3>{name}</h3>
+        <h4>{name}</h4>
         <p>{brand}</p>
         <p>{price.toFixed(2)}$</p>
-        <p>{details}</p>
+        <p>{category}</p>
       </div>
     </React.Fragment>
   )
@@ -32,7 +32,7 @@ BikeCard.propTypes = {
   model: PropTypes.string,
   brand: PropTypes.string,
   price: PropTypes.number,
-  details: PropTypes.string,
+  category: PropTypes.string,
   imageUrl: PropTypes.string
 }
 

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import HomeSlider from './HomeSlider';
 import BikeCategoriesList from './BikeCategoriesList';
+import PartsList from './PartsList';
 import {withFirestore} from 'react-redux-firebase';
 import BikeDetails from '../bikes/BikeDetails';
 
@@ -52,6 +53,7 @@ function HomePageController(props){
     <React.Fragment>
       <HomeSlider/>
       {visibleState}
+      <PartsList/>
     </React.Fragment>
   )
 }

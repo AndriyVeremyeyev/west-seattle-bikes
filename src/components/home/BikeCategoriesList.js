@@ -13,6 +13,7 @@ function BikeCategoriesList(props){
   const {onBikeSelection} = props;
 
   const bikeListStyle = {
+    marginTop: '50px',
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr',
     gap: '30px'

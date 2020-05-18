@@ -1,5 +1,5 @@
 import React from 'react';
-import PartCard from './PartCard';
+import PartCard from '../parts/PartCard';
 import {useSelector} from 'react-redux';
 import {useFirestoreConnect, isLoaded} from 'react-redux-firebase';
 
@@ -11,6 +11,8 @@ function PartsList(){
   const parts = useSelector(state => state.firestore.ordered.parts);
 
   const partsListStyle = {
+    marginTop: '50px',
+    marginBottom: '50px',
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr 1fr',
     gap: '30px'
