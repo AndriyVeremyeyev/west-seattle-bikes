@@ -12,6 +12,7 @@ function Register(){
 
   function doSignUp(event){
     event.preventDefault();
+    const username = event.target.username.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
     
@@ -19,7 +20,7 @@ function Register(){
     firebase.auth().createUserWithEmailAndPassword(email, password).then(function() {
       let user = firebase.auth().currentUser;
       user.updateProfile({
-        displayName: email,
+        displayName: username,
         }).then(function() {
           console.log("Username added:", user.displayName);
         }).catch(function(error) {
@@ -41,8 +42,19 @@ function Register(){
             style={formStyle}
             className="form-control"
             type='text'
-            name='signinEmail'
-            placeholder='email' 
+            name='username'
+            placeholder='username'
+            required
+          />
+        </div>
+        <div className="form-group">
+          <input
+            style={formStyle}
+            className="form-control"
+            type='text'
+            name='email'
+            placeholder='email'
+            required 
           />
         </div>
         <div className="form-group">
@@ -50,8 +62,9 @@ function Register(){
             style={formStyle}
             className="form-control"
             type='password'
-            name='signinPassword'
-            placeholder='Password' 
+            name='password'
+            placeholder='password'
+            required
           />
         </div>
         <button className="btn btn-info" type='submit'>Register</button>

@@ -11,6 +11,12 @@ function StoreController(){
   return(
     <React.Fragment>
       <Switch>
+        <Route path="/signin">
+          <SignIn/>
+        </Route>
+        <Route path="/register">
+          <Register/>
+        </Route>
         <Route path="/bikes">
           <BikesPageController/>
         </Route>

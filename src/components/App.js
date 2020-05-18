@@ -9,21 +9,22 @@ function App() {
 
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [userEmail, setUserEmail] = useState("New User");
+  const [userName, setUserName] = useState("New User");
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+      setUserName(user.displayName);
       setUserEmail(user.email);
       setIsSignedIn(true);
     } else {
       setIsSignedIn(false);
     }
   });
-
   return (
     <div className='container'>
       <Router>
-        <Header userSignInStatus={isSignedIn} userEmail={userEmail}/>
-        <StoreController userSignInStatus={isSignedIn} userEmail={userEmail}/>
+        <Header userSignInStatus={isSignedIn} userName={userName}/>
+        <StoreController userSignInStatus={isSignedIn} userName={userName} userEmail={userEmail}/>
         <Footer/>
       </Router>
     </div>

@@ -13,8 +13,8 @@ function Signin(){
 
   function doSignIn(event){
     event.preventDefault();
-    const email = event.target.signinEmail.value;
-    const password = event.target.signinPassword.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
 
     firebase.auth().signInWithEmailAndPassword(email, password).then(function() {
       console.log("Successfully signed in!");
@@ -33,8 +33,9 @@ function Signin(){
               style={formStyle}
               className="form-control"
               type='text'
-              name='signinEmail'
-              placeholder='email' 
+              name='email'
+              placeholder='email'
+              required 
             />
           </div>
           <div className="form-group">
@@ -42,8 +43,9 @@ function Signin(){
               style={formStyle}
               className="form-control"
               type='password'
-              name='signinPassword'
-              placeholder='Password' 
+              name='password'
+              placeholder='password'
+              required 
             />
           </div>
           <button className="btn btn-info" type='submit'>Sign in</button>
@@ -53,7 +55,7 @@ function Signin(){
   } else {
     return (
       <React.Fragment>
-        <h1>You are already signed in!</h1>
+        <h3>My cabinet:</h3>
         <Link to="/">Home</Link>
       </React.Fragment>
     )
