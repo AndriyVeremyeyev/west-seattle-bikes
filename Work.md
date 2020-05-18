@@ -18,5 +18,3 @@
 | Monday 5/15/2020 |  |
 | 8:00-8:30 | Add possibility to modify bike data. Bike has all CRUD functionality |
 | 8:30-9:30 |  |
-|      |  |
-|      |  |

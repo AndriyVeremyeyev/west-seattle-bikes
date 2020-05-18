@@ -1,14 +1,13 @@
 import React from "react";
 import firebase from "firebase/app";
 import { isLoaded } from 'react-redux-firebase';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function Signin(props){
 
   const auth = firebase.auth();
 
-  const {onCLickGoogleSignin} = props;
+  const {onCLickGoogleSignin, thisUserName, thisUserEmail} = props;
   
   const formStyle = {
     width: "200px",
@@ -57,21 +56,25 @@ function Signin(props){
           <button className="btn btn-info" type='submit'>Sign in</button>
         </form>
         <div style={googleStyle} onClick = {() => onCLickGoogleSignin()}id="my-signin2"></div>
-        <button style={googleStyle} onClick = {() => onCLickGoogleSignin()}>Sign In with Google</button>
+        <button style={googleStyle} onClick = {() => onCLickGoogleSignin()}>Sign in with Google</button>
       </React.Fragment>
     )
   } else {
     return (
       <React.Fragment>
         <h3>My cabinet:</h3>
-        <Link to="/">Home</Link>
+        <p>Name: {thisUserName}</p>
+        <p>E-mail: {thisUserEmail}</p>
+        <h5>Your card:</h5>
       </React.Fragment>
     )
   }
 }
 
 Signin.propTypes = {
-  onCLickGoogleSignin: PropTypes.func
+  onCLickGoogleSignin: PropTypes.func,
+  thisUserEmail: PropTypes.string,
+  thisUserName: PropTypes.string
 }
 
 

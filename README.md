@@ -74,6 +74,7 @@ The product will allow to user
  * Admin registration and admin login/sign-out to have the ability to add, modify and delete items in store
  * Ability to upload images to website by admin 
  * User registration and login/sign out to have the ability to add items to cart for possible purchase
+  * Ability of user to authenticate using their Google Account 
  * History of purchases in the user’s cabinet
  * Sorting items by brands, categories, price and so on
  * Connect to web site 3-party pay connector like PayPal connector etc for the user to pay for items in the card.

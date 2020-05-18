@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 function Header(props){
 
-  const {userSignInStatus, userName, userEmail} = props;
+  const {userSignInStatus, userName} = props;
 
   const buttonsStyle = {
     display: 'flex',

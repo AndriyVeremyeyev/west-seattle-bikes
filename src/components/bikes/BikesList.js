@@ -11,6 +11,7 @@ function BikesList(props){
   ])
   const bikes = useSelector(state => state.firestore.ordered.bikes);
 
+
   const {onBikeSelection} = props;
 
   const [roadCategoryOnlyVisible, setRoadCategoryOnlyVisible] = useState(false);

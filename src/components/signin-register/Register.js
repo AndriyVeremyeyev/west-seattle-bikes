@@ -77,7 +77,7 @@ function Register(props){
         <button className="btn btn-info" type='submit'>Register</button>
       </form>
       {/* <div style={googleStyle} onClick = {() => onCLickGoogleSignin()}id="my-signin2"></div> */}
-      <button className="btn btn-info" style={googleStyle} onClick = {() => onCLickGoogleSignin()}>Sign In with Google</button>
+      <button className="btn btn-info" style={googleStyle} onClick = {() => onCLickGoogleSignin()}>Sign in with Google</button>
     </React.Fragment>
   )
 }
