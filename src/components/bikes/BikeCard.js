@@ -12,6 +12,10 @@ function BikeCard(props){
   const imageBlockStyle = {
     height: '160px'
   }
+  const buttonsStyle = {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr'
+  }
 
   return(
     <React.Fragment>
@@ -22,7 +26,14 @@ function BikeCard(props){
         <h3>{model}</h3>
         <p>{brand}</p>
         <p>{price.toFixed(2)}$</p>
-        <button onClick = {() => whenBikeClicked(id)}>View Product</button>
+        <div style={buttonsStyle}>
+          <div>
+          <button onClick = {() => whenBikeClicked(id)}>View Product</button>
+          </div>
+          <div>
+          <button>Add to Card</button>
+          </div>
+        </div>
       </div>
     </React.Fragment>
   )

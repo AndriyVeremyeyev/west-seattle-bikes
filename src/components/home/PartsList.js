@@ -35,11 +35,12 @@ function PartsList(){
   }
 
   if (isLoaded(parts)){
+    const newParts = parts.slice(0, 4);
     return(
       <React.Fragment>
         <h1>Bike Parts</h1>
         <div style={partsListStyle}>
-          {parts.map(part => partCard(part))}
+          {newParts.map(part => partCard(part))}
         </div>
       </React.Fragment>
     )

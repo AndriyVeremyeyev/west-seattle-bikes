@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 function BikeCard(props){
 
-  const {name, brand, price, category, id, imageUrl} = props;
+  const {name, brand, price, category, imageUrl} = props;
 
   const imageStyle = {
     width: '150px'

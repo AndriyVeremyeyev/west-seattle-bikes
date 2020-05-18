@@ -1,16 +1,15 @@
 import React from 'react';
-import Header from './header-footer/Header';
 import HomePageController from './home/HomePageController';
 import BikesPageController from './bikes/BikesPageController';
 import PartsPageController from './parts/PartsPageController';
-import Footer from './header-footer/Footer';
 import {Switch, Route} from 'react-router-dom';
+import SignIn from './signin-register/SignIn';
+import Register from './signin-register/Register';
 
 function StoreController(){
 
   return(
     <React.Fragment>
-      <Header/>
       <Switch>
         <Route path="/bikes">
           <BikesPageController/>
@@ -22,7 +21,6 @@ function StoreController(){
           <HomePageController/>
         </Route>
       </Switch>
-      <Footer/>
     </React.Fragment>
   )
 }

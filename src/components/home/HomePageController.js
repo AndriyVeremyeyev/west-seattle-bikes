@@ -40,9 +40,13 @@ function HomePageController(props){
       )
     } else {
       return (
-        <BikeCategoriesList
-          onBikeSelection = {handleChangingSelectedBike}
-        />
+        <React.Fragment>
+          <HomeSlider/>
+          <BikeCategoriesList
+            onBikeSelection = {handleChangingSelectedBike}
+          />
+          <PartsList/>
+      </React.Fragment>
       )
     }
   }  
@@ -51,9 +55,7 @@ function HomePageController(props){
 
   return(
     <React.Fragment>
-      <HomeSlider/>
       {visibleState}
-      <PartsList/>
     </React.Fragment>
   )
 }

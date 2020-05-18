@@ -17,7 +17,7 @@ const rrfProps = {
   firebase,
   config: {
     userProfile: 'users',
-    // useFirestoreForProfile: true
+    useFirestoreForProfile: true
   },
   dispatch: store.dispatch,
   createFirestoreInstance
@@ -34,7 +34,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
