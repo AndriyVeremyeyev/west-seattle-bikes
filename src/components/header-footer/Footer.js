@@ -18,7 +18,7 @@ function Footer(){
           <h3>Company<span>logo</span></h3>
           <p class="footer-links">
           </p>
-          <p class="footer-company-name">West Seattle Bikes © 2015</p>
+          <p class="footer-company-name">West Seattle Bikes © 2020</p>
         </div>
         <div class="footer-center">
           <div>

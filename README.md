@@ -41,8 +41,10 @@ Selling store are pretty relevant and in demand all around the world. People con
 
 ### Known Bugs
 
-No bugs found at the current moment
-
+1. HomeSlider (Slider from "react-slick") creates error in console "Warning: Using UNSAFE_componentWillMount in strict mode is not recommended and may indicate bugs in your code."
+2. If click "Upload image" without choosing file first, it creates error "TypeError: cannot read property '0' of null"
+3. grm ERROR 【universal.bg.state.tabs】░░ capi error {isTrusted: true} in console.
+4. Unable to use useFirestoreConnect for BestSellersList and for NewArrivalsList at the same time. 
 ------------------------------
 
 ## Scope
@@ -122,13 +124,18 @@ The product will allow to user
 
 #### MVP
 
- * Markdown
- * CSS
  * React
- * Redux
- * Firebase
- * Figma
+   * React Bootstrap
+   * React Redux
+   * React Router
+   * React Slick
  * JavaScript
+ * Firebase
+ * CSS
+ * Bootstrap
+ * Markdown
+ * Redux
+ * Figma
 
 #### Planned
 

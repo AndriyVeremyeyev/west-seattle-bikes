@@ -204,7 +204,7 @@ function EditBikeForm(props){
               required
             /> 
           </div>                    
-          <button type='submit'>Add Bike</button>      
+          <button type='submit'>Edit Bike</button>      
         </form>
       </div>
     </React.Fragment>
