@@ -1,4 +1,4 @@
-.fa {
+/* .fa {
   padding-top: 5px;
   font-size: 20px;
   width: 30px;
@@ -113,3 +113,11 @@
   background: #ff6600;
   color: white;
 }
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+} */
