@@ -23,33 +23,38 @@ function App() {
     }
   });
 
+  const componentDidMount = () => {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://apis.google.com/js/platform.js?onload=renderButton";
+    this.div.appendChild(script);
+  }
+
   const googleSignin = () => {
-    firebase.auth().signInWithPopup(provider).then(function(result) {
+    firebase.auth().signInWithRedirect(provider).then(function(result) {
       // This gives you a Google Access Token. You can use it to access the Google API.
-      var token = result.credential.accessToken;
+      let token = result.credential.accessToken;
       // The signed-in user info.
-      var user = result.user;
+      let user = result.user;
+      setIsSignedIn(true);
       // ...
     }).catch(function(error) {
       // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
+      let errorCode = error.code;
+      let errorMessage = error.message;
       // The email of the user's account used.
-      var email = error.email;
+      let email = error.email;
       // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
+      let credential = error.credential;
       // ...
     });
-  
-    firebase.auth().signInWithRedirect(provider);
   }
 
   return (
     <div className='container'>
       <Router>
         <Header userSignInStatus={isSignedIn} userName={userName}/>
-        <button onClick = {() => googleSignin()}>Google Signin</button>
-        <StoreController userSignInStatus={isSignedIn} userName={userName} userEmail={userEmail}/>
+        <StoreController googleSignin={googleSignin} userSignInStatus={isSignedIn} userName={userName} userEmail={userEmail}/>
         <Footer/>
       </Router>
     </div>

@@ -2,14 +2,20 @@ import React from "react";
 import firebase from "firebase/app";
 import { isLoaded } from 'react-redux-firebase';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-function Signin(){
+function Signin(props){
 
-  const auth = firebase.auth()
+  const auth = firebase.auth();
+
+  const {onCLickGoogleSignin} = props;
   
   const formStyle = {
     width: "200px",
   };
+  const googleStyle={
+    marginTop: '20px'
+  }
 
   function doSignIn(event){
     event.preventDefault();
@@ -50,6 +56,8 @@ function Signin(){
           </div>
           <button className="btn btn-info" type='submit'>Sign in</button>
         </form>
+        <div style={googleStyle} onClick = {() => onCLickGoogleSignin()}id="my-signin2"></div>
+        <button style={googleStyle} onClick = {() => onCLickGoogleSignin()}>Sign In with Google</button>
       </React.Fragment>
     )
   } else {
@@ -61,5 +69,10 @@ function Signin(){
     )
   }
 }
+
+Signin.propTypes = {
+  onCLickGoogleSignin: PropTypes.func
+}
+
 
 export default Signin;
