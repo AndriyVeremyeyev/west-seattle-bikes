@@ -16,10 +16,15 @@ function BikesList(props){
 
   const [roadCategoryOnlyVisible, setRoadCategoryOnlyVisible] = useState(false);
   const [mountainCategoryOnlyVisible, setMountainCategoryOnlyVisible] = useState(false);
+  const [urbanCategoryOnlyVisible, setUrbanCategoryOnlyVisible] = useState(false);
   const [thousandPriceOnlyVisible, setThousandPriceOnlyVisible] = useState(false);
   const [threeThousandPriceOnlyVisible, setThreeThousandPriceOnlyVisible] = useState(false);
   const [fiveThousandPriceOnlyVisible, setFiveThousandPriceOnlyVisible] = useState(false);
   const [moreFiveThousandPriceOnlyVisible, setMoreFiveThousandPriceOnlyVisible] = useState(false);
+  const [smallSizeOnlyVisible, setSmallSizeOnlyVisible] = useState(false);
+  const [mediumSizeOnlyVisible, setMediumSizeOnlyVisible] = useState(false);
+  const [largeSizeOnlyVisible, setLargeSizeOnlyVisible] = useState(false);
+  const [xlargeSizeOnlyVisible, setXlargeSizeOnlyVisible] = useState(false);
 
   const pageStyle = {
     display: 'grid',
@@ -39,6 +44,9 @@ function BikesList(props){
   const handleMountainCategory = () => {
     setMountainCategoryOnlyVisible(!mountainCategoryOnlyVisible);
   }
+  const handleUrbanCategory = () => {
+    setUrbanCategoryOnlyVisible(!urbanCategoryOnlyVisible);
+  }
   const handleThousandPrice = () => {
     setThousandPriceOnlyVisible(!thousandPriceOnlyVisible);
   }
@@ -50,7 +58,19 @@ function BikesList(props){
   }
   const handleMoreFiveThousandPrice = () => {
     setMoreFiveThousandPriceOnlyVisible(!moreFiveThousandPriceOnlyVisible);
-  }    
+  }
+  const handleSmallSize = () => {
+    setSmallSizeOnlyVisible(!smallSizeOnlyVisible);
+  }
+  const handleMediumSize = () => {
+    setMediumSizeOnlyVisible(!mediumSizeOnlyVisible);
+  }   
+  const handleLargeSize = () => {
+    setLargeSizeOnlyVisible(!largeSizeOnlyVisible);
+  }   
+  const handleXlargeSize = () => {
+    setXlargeSizeOnlyVisible(!xlargeSizeOnlyVisible);
+  }   
 
   const bikeCard = (bike) => {
     return (<BikeCard
@@ -78,15 +98,23 @@ function BikesList(props){
     let updatedBikesList = [];
     const roadCategory = bikes.filter(x => x.category === 'Road');
     const mountainCategory = bikes.filter(x => x.category === 'Mountain');
+    const urbanCategory = bikes.filter(x => x.category === 'Commuter/Urban');
     const thousandPrice = bikes.filter(x => x.price <= 1000);
     const threeThousandPrice = bikes.filter(x => (x.price > 1000 && x.price<=3000));
     const fiveThousandPrice = bikes.filter(x => (x.price > 3000 && x.price<=5000));
     const moreFiveThousandPrice = bikes.filter(x => x.price > 5000);
+    const smallSize = bikes.filter(x => x.size === 'Small');
+    const mediumSize = bikes.filter(x => x.size === 'Medium');
+    const largeSize = bikes.filter(x => x.size === 'Large');
+    const xlargeSize = bikes.filter(x => x.size === 'X-Large');
     if (roadCategoryOnlyVisible){
       updatedBikesList = updatedBikesList.concat(roadCategory);
     } 
     if (mountainCategoryOnlyVisible){
       updatedBikesList = updatedBikesList.concat(mountainCategory);
+    }
+    if (urbanCategoryOnlyVisible){
+      updatedBikesList = updatedBikesList.concat(urbanCategory);
     }
     if (thousandPriceOnlyVisible){
       updatedBikesList = updatedBikesList.concat(thousandPrice);
@@ -100,8 +128,18 @@ function BikesList(props){
     if (moreFiveThousandPriceOnlyVisible){
       updatedBikesList = updatedBikesList.concat(moreFiveThousandPrice);
     }
-    // console.log(updatedBikesList);
-    // console.log(bikes);
+    if (smallSizeOnlyVisible){
+      updatedBikesList = updatedBikesList.concat(smallSize);
+    }
+    if (mediumSizeOnlyVisible){
+      updatedBikesList = updatedBikesList.concat(mediumSize);
+    }
+    if (largeSizeOnlyVisible){
+      updatedBikesList = updatedBikesList.concat(largeSize);
+    }
+    if (xlargeSizeOnlyVisible){
+      updatedBikesList = updatedBikesList.concat(xlargeSize);
+    }            
     if (updatedBikesList.length === 0){
       return  (
         bikes.map(bike => bikeCard(bike))
@@ -129,7 +167,7 @@ function BikesList(props){
               <label className="custom-control-label" htmlFor="customCheck1" > Mountain</label>
             </div>
             <div className="custom-control custom-checkbox">
-              <input type="checkbox" className="custom-control-input" id="customCheck2" onChange={handleMountainCategory}/>
+              <input type="checkbox" className="custom-control-input" id="customCheck2" onChange={handleUrbanCategory}/>
               <label className="custom-control-label" htmlFor="customCheck1" > Commuter/Urban</label>
             </div>
             <p>Price:</p>
@@ -148,7 +186,24 @@ function BikesList(props){
             <div className="custom-control custom-checkbox">
               <input type="checkbox" className="custom-control-input" id="customCheck2" onChange={handleMoreFiveThousandPrice}/>
               <label className="custom-control-label" htmlFor="customCheck1" >>5000.00$</label>
-            </div>            
+            </div>
+            <p>Size:</p>
+            <div className="custom-control custom-checkbox">
+              <input type="checkbox" className="custom-control-input" id="customCheck1" onChange={handleSmallSize}/>
+              <label className="custom-control-label" htmlFor="customCheck1">Small</label>
+            </div>
+            <div className="custom-control custom-checkbox">
+              <input type="checkbox" className="custom-control-input" id="customCheck2" onChange={handleMediumSize}/>
+              <label className="custom-control-label" htmlFor="customCheck1" >Medium</label>
+            </div>
+            <div className="custom-control custom-checkbox">
+              <input type="checkbox" className="custom-control-input" id="customCheck2" onChange={handleLargeSize}/>
+              <label className="custom-control-label" htmlFor="customCheck1" >Large</label>
+            </div>
+            <div className="custom-control custom-checkbox">
+              <input type="checkbox" className="custom-control-input" id="customCheck2" onChange={handleXlargeSize}/>
+              <label className="custom-control-label" htmlFor="customCheck1" >X-Large</label>
+            </div>                           
           </div>
           <div style={bikeListStyle}>
             {visibleState()}
