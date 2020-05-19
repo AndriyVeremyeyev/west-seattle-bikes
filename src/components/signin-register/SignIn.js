@@ -1,19 +1,40 @@
 import React from "react";
 import firebase from "firebase/app";
-import { isLoaded } from 'react-redux-firebase';
 import PropTypes from 'prop-types';
+import {useFirestoreConnect, isLoaded} from 'react-redux-firebase';
+import {useSelector} from 'react-redux';
+import PurchaseCard from './PurchaseCard';
 
 function Signin(props){
 
   const auth = firebase.auth();
 
-  const {onCLickGoogleSignin, thisUserName, thisUserEmail} = props;
+  const {onCLickGoogleSignin, thisUserId, thisUserName, thisUserEmail} = props;
+
+  useFirestoreConnect([
+    {collection: 'purchases', where: ['owner', '==', thisUserId] }
+  ])
+
+  const purchases = useSelector(state => state.firestore.ordered.purchases);
   
   const formStyle = {
     width: "200px",
   };
   const googleStyle={
     marginTop: '20px'
+  }
+
+  const purchaseCard = (purchase) => {
+    return (<PurchaseCard
+      name = {purchase.name}
+      brand = {purchase.brand}
+      price = {purchase.price}
+      quantity = {purchase.quantity}
+      imageUrl = {purchase.imageUrl}
+      id = {purchase.id}
+      key = {purchase.id}
+    />
+    )
   }
 
   function doSignIn(event){
@@ -26,6 +47,12 @@ function Signin(props){
     }).catch((error) => {
       console.log(error.message);
     });
+  }
+
+  if (isLoaded(purchases)){
+    purchases.map(purchase => {
+      console.log(purchase.purchase);
+    })
   }
 
   if ((isLoaded(auth)) && (auth.currentUser == null)) {
@@ -59,20 +86,27 @@ function Signin(props){
         <button style={googleStyle} onClick = {() => onCLickGoogleSignin()}>Sign in with Google</button>
       </React.Fragment>
     )
+  } else if (isLoaded(purchases)) {
+      // let updatedPurhases = purchases.filter();
+      return (
+        <React.Fragment>
+          <h3>My cabinet:</h3>
+          <p>Name: {thisUserName}</p>
+          <p>E-mail: {thisUserEmail}</p>
+          <h5>Your card:</h5>
+          {purchases.map(purchase => purchaseCard(purchase.purchase))}
+        </React.Fragment>
+      )
   } else {
     return (
-      <React.Fragment>
-        <h3>My cabinet:</h3>
-        <p>Name: {thisUserName}</p>
-        <p>E-mail: {thisUserEmail}</p>
-        <h5>Your card:</h5>
-      </React.Fragment>
+      <p>Is loading ...</p>
     )
-  }
+  } 
 }
 
 Signin.propTypes = {
   onCLickGoogleSignin: PropTypes.func,
+  thisUserId: PropTypes.string,
   thisUserEmail: PropTypes.string,
   thisUserName: PropTypes.string
 }

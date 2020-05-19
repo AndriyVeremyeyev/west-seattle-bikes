@@ -73,7 +73,6 @@ function Header(props){
 Header.propTypes = {
   userSignInStatus: PropTypes.bool,
   userName: PropTypes.string,
-  userEmail: PropTypes.string
 }
 
 export default Header;

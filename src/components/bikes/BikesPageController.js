@@ -4,12 +4,15 @@ import BikeDetails from './BikeDetails';
 import NewBikeForm from './NewBikeForm';
 import EditBikeForm from './EditBikeForm';
 import {withFirestore} from 'react-redux-firebase';
+import PropTypes from 'prop-types';
 
 function BikesPageController(props){
 
   const [addBikeFormVisible, setAddBikeFormVisible] = useState(false); 
   const [editBikeFormVisible, setEditBikeFormVisible] = useState(false);
   const [selectedBike, setSelectedBike] = useState(null);
+
+  const {handleAddingBikesToCart} = props;
 
   const handleToggleAddBikeForm = () => {
     if (selectedBike != null){
@@ -96,6 +99,7 @@ function BikesPageController(props){
         component: 
         <BikesList
           onBikeSelection = {handleChangingSelectedBike}
+          onAddBiketoCard = {handleAddingBikesToCart}
         />,
         buttonText: "Add Bike"
       }
@@ -111,6 +115,10 @@ function BikesPageController(props){
       {visibleState.component}
     </React.Fragment>
   )
+}
+
+BikesPageController.propTypes = {
+  handleAddingBikesToCart: PropTypes.func
 }
 
 export default withFirestore(BikesPageController);

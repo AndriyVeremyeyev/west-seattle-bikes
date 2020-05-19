@@ -1,18 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-function BikeCard(props){
+function PurchaseCard(props){
 
-  const {name, brand, price, category, imageUrl} = props;
+  const {name, brand, price, quantity, imageUrl} = props;
 
   const imageStyle = {
-    width: '150px'
+    width: '250px'
   }
   const imageBlockStyle = {
-    height: '180px'
-  }
-  const nameStyle={
-    height: '45px',
+    height: '160px'
   }
 
   return(
@@ -21,24 +18,23 @@ function BikeCard(props){
         <div style={imageBlockStyle}>
           <img style={imageStyle} src={imageUrl} alt=""/>
         </div>
-        <div style={nameStyle}>
-          <h4>{name}</h4>
-        </div>
+        <h3>{name}</h3>
         <p>{brand}</p>
         <p>{price.toFixed(2)}$</p>
-        <p>{category}</p>
+        <p>Quantity: {quantity}pc</p>
       </div>
     </React.Fragment>
   )
 }
 
-BikeCard.propTypes = {
+PurchaseCard.propTypes = {
+  whenAddToCardClicked: PropTypes.func,
   whenBikeClicked: PropTypes.func,
-  model: PropTypes.string,
+  name: PropTypes.string,
   brand: PropTypes.string,
+  quantity: PropTypes.number,
   price: PropTypes.number,
-  category: PropTypes.string,
   imageUrl: PropTypes.string
 }
 
-export default BikeCard;
+export default PurchaseCard;

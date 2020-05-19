@@ -12,7 +12,7 @@ function BikesList(props){
   const bikes = useSelector(state => state.firestore.ordered.bikes);
 
 
-  const {onBikeSelection} = props;
+  const {onBikeSelection, onAddBiketoCard} = props;
 
   const [roadCategoryOnlyVisible, setRoadCategoryOnlyVisible] = useState(false);
   const [mountainCategoryOnlyVisible, setMountainCategoryOnlyVisible] = useState(false);
@@ -54,6 +54,7 @@ function BikesList(props){
 
   const bikeCard = (bike) => {
     return (<BikeCard
+      whenAddToCardClicked = {onAddBiketoCard}
       whenBikeClicked = {onBikeSelection}
       model = {bike.model}
       brand = {bike.brand}
@@ -99,8 +100,8 @@ function BikesList(props){
     if (moreFiveThousandPriceOnlyVisible){
       updatedBikesList = updatedBikesList.concat(moreFiveThousandPrice);
     }
-    console.log(updatedBikesList);
-    console.log(bikes);
+    // console.log(updatedBikesList);
+    // console.log(bikes);
     if (updatedBikesList.length === 0){
       return  (
         bikes.map(bike => bikeCard(bike))
@@ -167,6 +168,7 @@ function BikesList(props){
 
 BikesList.propTypes = {
   onBikeSelection: PropTypes.func,
+  onAddBiketoCard: PropTypes.func
 }
 
 

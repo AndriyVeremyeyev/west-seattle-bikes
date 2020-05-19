@@ -10,6 +10,7 @@ function App() {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [userEmail, setUserEmail] = useState("New User");
   const [userName, setUserName] = useState("New User");
+  const [currentUserId, setCurrentUserId] = useState(null);
 
   let provider = new firebase.auth.GoogleAuthProvider();
 
@@ -18,17 +19,11 @@ function App() {
       setUserName(user.displayName);
       setUserEmail(user.email);
       setIsSignedIn(true);
+      setCurrentUserId(user.uid);
     } else {
       setIsSignedIn(false);
     }
   });
-
-  const componentDidMount = () => {
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = "https://apis.google.com/js/platform.js?onload=renderButton";
-    this.div.appendChild(script);
-  }
 
   const googleSignin = () => {
     firebase.auth().signInWithRedirect(provider).then(function(result) {
@@ -53,8 +48,17 @@ function App() {
   return (
     <div className='container'>
       <Router>
-        <Header userSignInStatus={isSignedIn} userName={userName}/>
-        <StoreController googleSignin={googleSignin} userSignInStatus={isSignedIn} userName={userName} userEmail={userEmail}/>
+        <Header
+          userSignInStatus={isSignedIn} 
+          userName={userName}
+        />
+        <StoreController 
+          googleSignin={googleSignin}
+          currentUserId={currentUserId} 
+          userSignInStatus={isSignedIn} 
+          userName={userName} 
+          userEmail={userEmail}
+        />
         <Footer/>
       </Router>
     </div>

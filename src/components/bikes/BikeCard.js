@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 function BikeCard(props){
 
   // const {whenBikeClicked, model, brand, color, size, price, quantity, details, id, imageUrl} = props;
-  const {whenBikeClicked, model, brand, price, id, imageUrl} = props;
+  const {whenBikeClicked, whenAddToCardClicked, model, brand, price, id, imageUrl} = props;
 
   const imageStyle = {
     width: '250px'
@@ -31,7 +31,7 @@ function BikeCard(props){
           <button onClick = {() => whenBikeClicked(id)}>View Product</button>
           </div>
           <div>
-          <button>Add to Card</button>
+          <button onClick = {() => whenAddToCardClicked(id)}>Add to Card</button>
           </div>
         </div>
       </div>
@@ -40,6 +40,7 @@ function BikeCard(props){
 }
 
 BikeCard.propTypes = {
+  whenAddToCardClicked: PropTypes.func,
   whenBikeClicked: PropTypes.func,
   model: PropTypes.string,
   brand: PropTypes.string,
