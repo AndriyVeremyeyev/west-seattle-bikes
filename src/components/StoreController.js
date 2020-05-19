@@ -13,8 +13,8 @@ function StoreController(props){
 
   const {googleSignin, userName, userEmail} = props;
 
-  const auth = props.firebase.auth();
-  const currentUserId = auth.currentUser.uid;
+  // const auth = props.firebase.auth();
+  // const currentUserId = auth.currentUser.uid;
 
   const handleAddingItemsToCart = (id, event) => {
     event.preventDefault();
@@ -35,9 +35,9 @@ function StoreController(props){
         imageUrl: bike.get('imageUrl'),
         id: bike.id
       }
-      firestore.collection('purchases').add(
+      props.firestore.collection('purchases').add(
         {
-          owner: currentUserId,
+          // owner: currentUserId,
           purchase: firestoreBike
         }
       )
@@ -80,4 +80,4 @@ StoreController.propTypes = {
   userEmail: PropTypes.string
 }
 
-export default withFireStore(StoreController);
+export default withFirestore(StoreController);
