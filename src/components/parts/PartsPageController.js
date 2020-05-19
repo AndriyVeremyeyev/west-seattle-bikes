@@ -8,7 +8,7 @@ function PartsPageController(props){
 
   const [addPartFormVisible, setAddPartFormVisible] = useState(false);
 
-  const {handleAddingPartsToCart} = props;
+  const {handleAddingPartToCart} = props;
 
   const handleToggleAddPartForm = () => {
     setAddPartFormVisible(!addPartFormVisible);
@@ -30,7 +30,7 @@ function PartsPageController(props){
     }  else {
       return {
         component: <PartsList
-        onAddParttoCard = {handleAddingPartsToCart}
+        onAddParttoCard = {handleAddingPartToCart}
         />,
         buttonText: "Add Part"
       }
@@ -49,7 +49,7 @@ function PartsPageController(props){
 }
 
 PartsPageController.propTypes = {
-  handleAddingPartsToCart: PropTypes.func
+  handleAddingPartToCart: PropTypes.func
 }
 
 export default withFirestore(PartsPageController);

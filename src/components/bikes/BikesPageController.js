@@ -12,7 +12,7 @@ function BikesPageController(props){
   const [editBikeFormVisible, setEditBikeFormVisible] = useState(false);
   const [selectedBike, setSelectedBike] = useState(null);
 
-  const {handleAddingBikesToCart} = props;
+  const {handleAddingBikeToCart} = props;
 
   const handleToggleAddBikeForm = () => {
     if (selectedBike != null){
@@ -99,7 +99,7 @@ function BikesPageController(props){
         component: 
         <BikesList
           onBikeSelection = {handleChangingSelectedBike}
-          onAddBiketoCard = {handleAddingBikesToCart}
+          onAddBiketoCard = {handleAddingBikeToCart}
         />,
         buttonText: "Add Bike"
       }
@@ -118,7 +118,7 @@ function BikesPageController(props){
 }
 
 BikesPageController.propTypes = {
-  handleAddingBikesToCart: PropTypes.func
+  handleAddingBikeToCart: PropTypes.func
 }
 
 export default withFirestore(BikesPageController);

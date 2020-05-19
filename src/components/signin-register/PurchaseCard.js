@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 function PurchaseCard(props){
 
-  const {name, brand, price, quantity, imageUrl} = props;
+  const {onCLickRemove, name, brand, price, id, quantity, imageUrl} = props;
 
   const imageStyle = {
     height: '150px'
@@ -24,6 +24,7 @@ function PurchaseCard(props){
           <p>{brand}</p>
           <p>{price.toFixed(2)}$</p>
           <p>Quantity: {quantity}pc</p>
+          <button onClick = {() => onCLickRemove(id)}>Remove from Cart</button>
         </div>
       </div>
     </React.Fragment>
@@ -31,8 +32,7 @@ function PurchaseCard(props){
 }
 
 PurchaseCard.propTypes = {
-  whenAddToCardClicked: PropTypes.func,
-  whenBikeClicked: PropTypes.func,
+  onCLickRemove: PropTypes.func,
   name: PropTypes.string,
   brand: PropTypes.string,
   quantity: PropTypes.number,

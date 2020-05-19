@@ -9,7 +9,7 @@ function Signin(props){
 
   const auth = firebase.auth();
 
-  const {onCLickGoogleSignin, thisUserId, thisUserName, thisUserEmail} = props;
+  const {handleRemoveBikeFromCart, onCLickGoogleSignin, thisUserId, thisUserName, thisUserEmail} = props;
 
   useFirestoreConnect([
     {collection: 'purchases', where: ['owner', '==', thisUserId] }
@@ -26,11 +26,12 @@ function Signin(props){
 
   const purchaseCard = (purchase) => {
     return (<PurchaseCard
-      name = {purchase.name}
-      brand = {purchase.brand}
-      price = {purchase.price}
-      quantity = {purchase.quantity}
-      imageUrl = {purchase.imageUrl}
+      onCLickRemove = {handleRemoveBikeFromCart}
+      name = {purchase.purchase.name}
+      brand = {purchase.purchase.brand}
+      price = {purchase.purchase.price}
+      quantity = {purchase.purchase.quantity}
+      imageUrl = {purchase.purchase.imageUrl}
       id = {purchase.id}
       key = {purchase.id}
     />
@@ -88,7 +89,7 @@ function Signin(props){
           <p>E-mail: {thisUserEmail}</p>
           <div style={googleStyle}>
             <h4>Shopping Cart:</h4>
-            {purchases.map(purchase => purchaseCard(purchase.purchase))}
+            {purchases.map(purchase => purchaseCard(purchase))}
           </div>
         </React.Fragment>
       )
@@ -100,6 +101,7 @@ function Signin(props){
 }
 
 Signin.propTypes = {
+  handleRemoveBikeFromCart: PropTypes.func,
   onCLickGoogleSignin: PropTypes.func,
   thisUserId: PropTypes.string,
   thisUserEmail: PropTypes.string,

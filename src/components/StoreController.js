@@ -12,7 +12,7 @@ function StoreController(props){
 
   const {googleSignin, currentUserId, userName, userEmail} = props;
 
-  const handleAddingBikesToCart = (id) => {
+  const handleAddingBikeToCart = (id) => {
     props.firestore.get({collection: 'bikes', doc: id}).then((bike) => {
       const firestoreBike = {
         name: bike.get('model'),
@@ -20,7 +20,6 @@ function StoreController(props){
         price: bike.get('price'),
         quantity: 1,
         imageUrl: bike.get('imageUrl'),
-        id: bike.id
       }
       props.firestore.collection('purchases').add(
         {
@@ -31,7 +30,7 @@ function StoreController(props){
     })
   }
 
-  const handleAddingPartsToCart = (id) => {
+  const handleAddingPartToCart = (id) => {
     props.firestore.get({collection: 'parts', doc: id}).then((part) => {
       const firestorePart = {
         name: part.get('name'),
@@ -39,7 +38,6 @@ function StoreController(props){
         price: part.get('price'),
         quantity: 1,
         imageUrl: part.get('imageUrl'),
-        id: part.id
       }
       props.firestore.collection('purchases').add(
         {
@@ -50,6 +48,10 @@ function StoreController(props){
     })
   }
 
+  const handleRemoveBikeFromCart = (id) => {
+    props.firestore.delete({collection: 'purchases', doc: id});
+    console.log('vasya');
+  }
 
   return(
     <React.Fragment>
@@ -60,6 +62,7 @@ function StoreController(props){
             onCLickGoogleSignin = {googleSignin}
             thisUserName={userName}
             thisUserEmail={userEmail}
+            handleRemoveBikeFromCart={handleRemoveBikeFromCart}
           />
         </Route>
         <Route path="/register">
@@ -69,12 +72,12 @@ function StoreController(props){
         </Route>
         <Route path="/bikes">
           <BikesPageController
-          handleAddingBikesToCart={handleAddingBikesToCart}
+          handleAddingBikeToCart={handleAddingBikeToCart}
           />
         </Route>
         <Route path="/parts">
           <PartsPageController
-          handleAddingPartsToCart={handleAddingPartsToCart}
+          handleAddingPartToCart={handleAddingPartToCart}
           />
         </Route>
         <Route path="/">
