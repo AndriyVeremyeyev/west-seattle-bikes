@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-function BikeCard(props){
+function PartCard(props){
 
-  const {name, brand, price, category, imageUrl} = props;
+  const {name, whenAddToCardClicked, brand, id, price, category, imageUrl} = props;
 
   const imageStyle = {
     width: '150px'
@@ -27,18 +27,20 @@ function BikeCard(props){
         <p>{brand}</p>
         <p>{price.toFixed(2)}$</p>
         <p>{category}</p>
+        <button onClick = {() => whenAddToCardClicked(id)}>Add to Card</button>
       </div>
     </React.Fragment>
   )
 }
 
-BikeCard.propTypes = {
-  whenBikeClicked: PropTypes.func,
+PartCard.propTypes = {
+  whenAddToCardClicked: PropTypes.func,
   model: PropTypes.string,
   brand: PropTypes.string,
   price: PropTypes.number,
   category: PropTypes.string,
-  imageUrl: PropTypes.string
+  imageUrl: PropTypes.string,
+  id: PropTypes.string
 }
 
-export default BikeCard;
+export default PartCard;

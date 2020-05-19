@@ -6,22 +6,25 @@ function PurchaseCard(props){
   const {name, brand, price, quantity, imageUrl} = props;
 
   const imageStyle = {
-    width: '250px'
+    height: '150px'
   }
-  const imageBlockStyle = {
-    height: '160px'
+  const itemStyle = {
+    display: 'grid',
+    gridTemplateColumns: '1fr 2fr',
   }
 
   return(
     <React.Fragment>
-      <div>
-        <div style={imageBlockStyle}>
+      <div style={itemStyle}>
+        <div>
           <img style={imageStyle} src={imageUrl} alt=""/>
         </div>
-        <h3>{name}</h3>
-        <p>{brand}</p>
-        <p>{price.toFixed(2)}$</p>
-        <p>Quantity: {quantity}pc</p>
+        <div>
+          <h4>{name}</h4>
+          <p>{brand}</p>
+          <p>{price.toFixed(2)}$</p>
+          <p>Quantity: {quantity}pc</p>
+        </div>
       </div>
     </React.Fragment>
   )

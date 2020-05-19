@@ -2,13 +2,16 @@ import React from 'react';
 import PartCard from './PartCard';
 import {useSelector} from 'react-redux';
 import {useFirestoreConnect, isLoaded} from 'react-redux-firebase';
+import PropTypes from 'prop-types';
 
-function PartsList(){
+function PartsList(props){
 
   useFirestoreConnect([
     {collection: 'parts'}
   ])
   const parts = useSelector(state => state.firestore.ordered.parts);
+
+  const {onAddParttoCard} = props;
 
   const partsListStyle = {
     display: 'grid',
@@ -18,6 +21,7 @@ function PartsList(){
 
   const partCard = (part) => {
     return (<PartCard
+      whenAddToCardClicked = {onAddParttoCard}
       name = {part.name}
       brand = {part.brand}
       price = {part.price}
@@ -49,6 +53,10 @@ function PartsList(){
       </React.Fragment>
     )
   }
+}
+
+PartsList.propTypes = {
+  onAddParttoCard: PropTypes.func
 }
 
 export default PartsList;

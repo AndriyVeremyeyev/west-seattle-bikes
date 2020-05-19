@@ -31,6 +31,25 @@ function StoreController(props){
     })
   }
 
+  const handleAddingPartsToCart = (id) => {
+    props.firestore.get({collection: 'parts', doc: id}).then((part) => {
+      const firestorePart = {
+        name: part.get('name'),
+        brand: part.get('brand'),
+        price: part.get('price'),
+        quantity: 1,
+        imageUrl: part.get('imageUrl'),
+        id: part.id
+      }
+      props.firestore.collection('purchases').add(
+        {
+          owner: currentUserId,
+          purchase: firestorePart
+        }
+      )
+    })
+  }
+
 
   return(
     <React.Fragment>
@@ -54,7 +73,9 @@ function StoreController(props){
           />
         </Route>
         <Route path="/parts">
-          <PartsPageController/>
+          <PartsPageController
+          handleAddingPartsToCart={handleAddingPartsToCart}
+          />
         </Route>
         <Route path="/">
           <HomePageController/>

@@ -2,10 +2,13 @@ import React, {useState} from 'react';
 import PartsList from './PartsList';
 import NewPartForm from './NewPartForm';
 import {withFirestore} from 'react-redux-firebase';
+import PropTypes from 'prop-types';
 
 function PartsPageController(props){
 
-  const [addPartFormVisible, setAddPartFormVisible] = useState(false); 
+  const [addPartFormVisible, setAddPartFormVisible] = useState(false);
+
+  const {handleAddingPartsToCart} = props;
 
   const handleToggleAddPartForm = () => {
     setAddPartFormVisible(!addPartFormVisible);
@@ -26,7 +29,9 @@ function PartsPageController(props){
       }
     }  else {
       return {
-        component: <PartsList/>,
+        component: <PartsList
+        onAddParttoCard = {handleAddingPartsToCart}
+        />,
         buttonText: "Add Part"
       }
     }
@@ -41,6 +46,10 @@ function PartsPageController(props){
       {visibleState.component}
     </React.Fragment>
   )
+}
+
+PartsPageController.propTypes = {
+  handleAddingPartsToCart: PropTypes.func
 }
 
 export default withFirestore(PartsPageController);

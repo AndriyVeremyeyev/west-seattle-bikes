@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 function BikeCard(props){
 
-  // const {whenBikeClicked, model, brand, color, size, price, quantity, details, id, imageUrl} = props;
   const {whenBikeClicked, whenAddToCardClicked, model, brand, price, id, imageUrl} = props;
 
   const imageStyle = {
@@ -44,15 +43,8 @@ BikeCard.propTypes = {
   whenBikeClicked: PropTypes.func,
   model: PropTypes.string,
   brand: PropTypes.string,
-  // color: PropTypes.string,
-  // size: PropTypes.string,
+  id: PropTypes.string,
   price: PropTypes.number,
-  // category: PropTypes.string,
-  // availability: PropTypes.string,
-  // quantity: PropTypes.number,
-  // bestSeller: PropTypes.bool,
-  // newArrival: PropTypes.bool,
-  // details: PropTypes.string,
   imageUrl: PropTypes.string
 }
 

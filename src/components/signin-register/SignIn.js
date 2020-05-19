@@ -49,12 +49,6 @@ function Signin(props){
     });
   }
 
-  if (isLoaded(purchases)){
-    purchases.map(purchase => {
-      console.log(purchase.purchase);
-    })
-  }
-
   if ((isLoaded(auth)) && (auth.currentUser == null)) {
     return (
       <React.Fragment>
@@ -87,14 +81,15 @@ function Signin(props){
       </React.Fragment>
     )
   } else if (isLoaded(purchases)) {
-      // let updatedPurhases = purchases.filter();
       return (
         <React.Fragment>
           <h3>My cabinet:</h3>
           <p>Name: {thisUserName}</p>
           <p>E-mail: {thisUserEmail}</p>
-          <h5>Your card:</h5>
-          {purchases.map(purchase => purchaseCard(purchase.purchase))}
+          <div style={googleStyle}>
+            <h4>Shopping Cart:</h4>
+            {purchases.map(purchase => purchaseCard(purchase.purchase))}
+          </div>
         </React.Fragment>
       )
   } else {
