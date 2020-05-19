@@ -27,11 +27,11 @@ function Signin(props){
   const purchaseCard = (purchase) => {
     return (<PurchaseCard
       onCLickRemove = {handleRemoveBikeFromCart}
-      name = {purchase.purchase.name}
-      brand = {purchase.purchase.brand}
-      price = {purchase.purchase.price}
-      quantity = {purchase.purchase.quantity}
-      imageUrl = {purchase.purchase.imageUrl}
+      name = {purchase.name}
+      brand = {purchase.brand}
+      price = {purchase.price}
+      quantity = {purchase.quantity}
+      imageUrl = {purchase.imageUrl}
       id = {purchase.id}
       key = {purchase.id}
     />
