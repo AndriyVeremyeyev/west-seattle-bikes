@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import firebase from '../../firebase';
 import PropTypes from 'prop-types';
 import Logo from '../../featured/images/Logo/logo_01.jpg'
@@ -58,7 +58,7 @@ function Header(props){
       return (
         <React.Fragment>
           <NavLink  to="/signin">My cabinet</NavLink>
-          <NavLink  onClick={() => doSignOut()} to="/">Sign Out</NavLink>
+          <NavLink exact={false} onClick={() => doSignOut()} to='vasya'>Sign Out</NavLink>
         </React.Fragment>
       )
     } else {

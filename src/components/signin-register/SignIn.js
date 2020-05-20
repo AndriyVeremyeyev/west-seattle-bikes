@@ -78,7 +78,7 @@ function Signin(props){
           <button className="btn btn-info" type='submit'>Sign in</button>
         </form>
         <div style={googleStyle} onClick = {() => onCLickGoogleSignin()}id="my-signin2"></div>
-        <button style={googleStyle} onClick = {() => onCLickGoogleSignin()}>Sign in with Google</button>
+        <button className="btn btn-info" style={googleStyle} onClick = {() => onCLickGoogleSignin()}>Sign in with Google</button>
       </React.Fragment>
     )
   } else if (isLoaded(purchases)) {
