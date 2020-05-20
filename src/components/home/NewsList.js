@@ -1,12 +1,12 @@
 import React from 'react';
-import NewsCard from '../news/NewsCard';
+import NewsCard from './NewsCard';
 import {useSelector} from 'react-redux';
 import {useFirestoreConnect, isLoaded} from 'react-redux-firebase';
 
 function NewsList(){
 
   useFirestoreConnect([
-    {collection: 'parts'}
+    {collection: 'news'}
   ])
   const news = useSelector(state => state.firestore.ordered.news);
 
@@ -33,7 +33,7 @@ function NewsList(){
   }
 
   if (isLoaded(news)){
-    const someNews = news.slice(0, 3);
+    const someNews = news.slice(0, 1);
     return(
       <React.Fragment>
         <div style={sectionStyle}>

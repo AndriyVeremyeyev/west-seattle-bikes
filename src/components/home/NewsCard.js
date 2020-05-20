@@ -5,29 +5,18 @@ function NewsCard(props){
 
   const {title, body, author, date, imageUrl} = props;
 
-  // const updatedDate = date.toDate().toISOString().slice(0,10).replace(/-/g, "/");
-  const updatedDate = date.toDate().toString();
+  const updatedDate = date.toDate().toISOString().slice(0,10).replace(/-/g, "/");
+  // const updatedDate = date.toDate().toString();
 
   const blockStyle = {
     marginBottom: '50px',
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr'
+    gridTemplateColumns: '1fr 2fr'
   }
 
   const imageStyle = {
-    width: '300px' 
+    height: '300px' 
   }
-
-  // const dateToString = (someDate) => {
-  //   let mm = someDate.getMonth() + 1;
-  //   let dd = someDate.getDate();
-
-  //   return [someDate.getFullYear(),
-  //     (mm>9 ? '' : '0') + mm,
-  //     (dd>9 ? '' : '0') + dd
-  //    ].join('');
-  // }
-
 
   return(
     <React.Fragment>

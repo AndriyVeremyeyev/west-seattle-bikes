@@ -37,7 +37,7 @@ function NewsList(){
   else {
     return (
       <React.Fragment>
-        <h3>Loading...</h3>
+        <h3>Vasya Loading...</h3>
       </React.Fragment>
     )
   }
