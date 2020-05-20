@@ -38,7 +38,7 @@ function Footer(){
         <div className="footer-right">
           <p className="footer-company-about">
             <span>About the company</span>
-            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+            We believe that bikes make the world better. We are driven by the idea that something as simple as a bike can help you escape into the wilderness, explore your city, bring a family together, and make your everyday transportation easier. 
           </p>
           <div className="footer-icons">
             <a href="https://www.facebook.com/andriy.veremyeyev"><i className="fa fa-facebook"></i></a>

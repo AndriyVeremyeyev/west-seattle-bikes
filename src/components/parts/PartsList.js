@@ -39,7 +39,7 @@ function PartsList(props){
   if (isLoaded(parts)){
     return(
       <React.Fragment>
-        <h1>Bike Parts</h1>
+        <h1>Parts Store</h1>
         <div style={partsListStyle}>
           {parts.map(part => partCard(part))}
         </div>

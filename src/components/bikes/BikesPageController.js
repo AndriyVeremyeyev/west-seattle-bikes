@@ -110,7 +110,7 @@ function BikesPageController(props){
 
   return(
     <React.Fragment>
-      <h1>BikesPageController</h1>
+      <h1>Bikes Store</h1>
       <button type="button" className="btn btn-secondary" onClick={handleToggleAddBikeForm}>{visibleState.buttonText}</button>
       {visibleState.component}
     </React.Fragment>

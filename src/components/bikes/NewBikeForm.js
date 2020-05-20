@@ -33,13 +33,10 @@ function NewBikeForm(props){
   }
 
   const handleChange = (files) => {
-      setFiles(files);
-      console.log(files);
-      console.log(files[0]);
+    setFiles(files);
   }
 
   const handleUpload = () => {
-    console.log(files);
     if (files !== null){
       const image = files[0];
       const uploadTask = firebase.storage().ref(`bikes/${image.name}`).put(image);

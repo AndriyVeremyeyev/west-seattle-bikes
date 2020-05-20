@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import HomeSlider from './HomeSlider';
 import BikeCategoriesList from './BikeCategoriesList';
 import PartsList from './PartsList';
+import NewsList from './NewsList';
 import {withFirestore} from 'react-redux-firebase';
 import BikeDetails from '../bikes/BikeDetails';
 
@@ -46,6 +47,7 @@ function HomePageController(props){
             onBikeSelection = {handleChangingSelectedBike}
           />
           <PartsList/>
+          <NewsList/>
       </React.Fragment>
       )
     }

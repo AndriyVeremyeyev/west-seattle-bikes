@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import PartsList from './PartsList';
 import NewPartForm from './NewPartForm';
-import {withFirestore} from 'react-redux-firebase';
 import PropTypes from 'prop-types';
 
 function PartsPageController(props){
@@ -41,7 +40,6 @@ function PartsPageController(props){
 
   return(
     <React.Fragment>
-      <h1>PartsPageController</h1>
       <button type="button" className="btn btn-secondary" onClick={handleToggleAddPartForm}>{visibleState.buttonText}</button>
       {visibleState.component}
     </React.Fragment>
@@ -52,4 +50,4 @@ PartsPageController.propTypes = {
   handleAddingPartToCart: PropTypes.func
 }
 
-export default withFirestore(PartsPageController);
+export default PartsPageController;

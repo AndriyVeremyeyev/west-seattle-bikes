@@ -10,10 +10,6 @@ function Register(props){
     width: "200px",
   };
 
-  const googleStyle={
-    marginTop: '20px'
-  }
-
   function doSignUp(event){
     event.preventDefault();
     const username = event.target.username.value;

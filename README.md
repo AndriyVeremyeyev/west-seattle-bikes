@@ -145,7 +145,7 @@ The product will allow to user
  * Figma
  * JavaScript
  * API (Bike Index, BikeWise, Mogol Conditions)
- * React hooks
+ * React Native
 
 ### Contributors
 

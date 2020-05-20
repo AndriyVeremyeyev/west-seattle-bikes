@@ -3,7 +3,7 @@ import HomePageController from './home/HomePageController';
 import BikesPageController from './bikes/BikesPageController';
 import PartsPageController from './parts/PartsPageController';
 import {Switch, Route} from 'react-router-dom';
-// import SignIn from './signin-register/SignIn';
+import NewsPageController from './news/NewsPageController';
 import SignIn from './signin-register/SignInVasya';
 import Register from './signin-register/Register';
 import PropTypes from 'prop-types';
@@ -140,6 +140,10 @@ function StoreController(props){
         <Route path="/parts">
           <PartsPageController
           handleAddingPartToCart={handleAddingPartToCart}
+          />
+        </Route>
+        <Route path="/news">
+          <NewsPageController
           />
         </Route>
         <Route path="/">

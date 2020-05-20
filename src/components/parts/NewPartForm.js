@@ -27,21 +27,23 @@ function NewPartForm(props){
   }
 
   const handleUpload = () => {
-    const image = files[0];
-    const uploadTask = firebase.storage().ref(`parts/${image.name}`).put(image);
-    uploadTask.on('state_changed',
-    (snapshot) => {
-      const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes)* 100);
-      setProgress(progress)
-    },
-    (error) => {
-      console.log(error);
-    },
-    () => {
-      firebase.storage().ref('parts').child(image.name).getDownloadURL().then(url => {
-        setUrl(url);
-      })
-    });
+    if (files !== null){
+      const image = files[0];
+      const uploadTask = firebase.storage().ref(`parts/${image.name}`).put(image);
+      uploadTask.on('state_changed',
+      (snapshot) => {
+        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes)* 100);
+        setProgress(progress)
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        firebase.storage().ref('parts').child(image.name).getDownloadURL().then(url => {
+          setUrl(url);
+        })
+      });
+    }
   }
 
   function addPartToFirestore(event){
