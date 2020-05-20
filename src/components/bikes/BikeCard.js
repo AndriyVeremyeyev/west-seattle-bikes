@@ -27,10 +27,10 @@ function BikeCard(props){
         <p>{price.toFixed(2)}$</p>
         <div style={buttonsStyle}>
           <div>
-          <button onClick = {() => whenBikeClicked(id)}>View Product</button>
+          <button className="btn btn-secondary" onClick = {() => whenBikeClicked(id)}>View Product</button>
           </div>
           <div>
-          <button onClick = {() => whenAddToCardClicked(id)}>Add to Card</button>
+          <button className="btn btn-secondary" onClick = {() => whenAddToCardClicked(id)}>Add to Card</button>
           </div>
         </div>
       </div>

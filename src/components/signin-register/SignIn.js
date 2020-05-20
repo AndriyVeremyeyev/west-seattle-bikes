@@ -84,7 +84,7 @@ function Signin(props){
   } else if (isLoaded(purchases)) {
       return (
         <React.Fragment>
-          <h3>My cabinet:</h3>
+          <h3>User Information:</h3>
           <p>Name: {thisUserName}</p>
           <p>E-mail: {thisUserEmail}</p>
           <div style={googleStyle}>

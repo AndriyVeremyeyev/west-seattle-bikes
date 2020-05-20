@@ -41,10 +41,6 @@ Selling store are pretty relevant and in demand all around the world. People con
 
 ### Known Bugs
 
-1. HomeSlider (Slider from "react-slick") creates error in console "Warning: Using UNSAFE_componentWillMount in strict mode is not recommended and may indicate bugs in your code."
-2. If click "Upload image" without choosing file first, it creates error "TypeError: cannot read property '0' of null"
-3. grm ERROR 【universal.bg.state.tabs】░░ capi error {isTrusted: true} in console.
-4. Unable to use useFirestoreConnect for BestSellersList and for NewArrivalsList at the same time. 
 ------------------------------
 
 ## Scope
@@ -83,6 +79,7 @@ The product will allow to user
  * Connect Mogol Conditions API to see weather conditions in the area
  * Capability to search for bike events relates West Seattle area
  * Capability to aggregate articles and reviews from 3-party websites to compare characteristics and quality of bikes, bike parts, etc.
+ * Create mobile version of website in React Native
 
 ### Specs
 

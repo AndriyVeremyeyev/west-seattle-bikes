@@ -17,6 +17,10 @@ function PartsList(){
     gridTemplateColumns: '1fr 1fr 1fr 1fr',
     gap: '30px'
   }
+  const sectionStyle={
+    backgroundColor: '#F5F5F5',
+    height: '100px'
+  }
 
   const partCard = (part) => {
     return (<PartCard
@@ -38,7 +42,9 @@ function PartsList(){
     const newParts = parts.slice(0, 4);
     return(
       <React.Fragment>
-        <h1>Bike Parts</h1>
+        <div style={sectionStyle}>
+          <h1>Bike Parts</h1>
+        </div>
         <div style={partsListStyle}>
           {newParts.map(part => partCard(part))}
         </div>

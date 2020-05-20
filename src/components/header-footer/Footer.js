@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from '../../featured/images/Logo/logo_01.jpg'
 import './css/Footer.css';
 
 function Footer(){
@@ -15,7 +16,7 @@ function Footer(){
       <h1>Footer</h1> */}
       <footer className="footer-distributed">
         <div className="footer-left">
-          <h3>Company<span>logo</span></h3>
+          <img src={Logo} alt=''></img>
           <p className="footer-links">
           </p>
           <p className="footer-company-name">West Seattle Bikes © 2020</p>
@@ -40,9 +41,9 @@ function Footer(){
             Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
           </p>
           <div className="footer-icons">
-            <a href="#"><i className="fa fa-facebook"></i></a>
-            <a href="#"><i className="fa fa-twitter"></i></a>
-            <a href="#"><i className="fa fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/andriy.veremyeyev"><i className="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/AVeremyeyev"><i className="fa fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/andriy-veremyeyev/"><i className="fa fa-linkedin"></i></a>
             <a href="https://github.com/BelyyBrat"><i className="fa fa-github"></i></a>
           </div>
         </div>
