@@ -14,9 +14,15 @@ function BikeCategoriesList(props){
 
   const bikeListStyle = {
     marginTop: '50px',
+    marginBottom: '50px',
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr',
     gap: '30px'
+  }
+  const sectionStyle={
+    backgroundColor: '#F5F5F5',
+    height: '100px',
+    paddingTop: '10px'
   }
 
   const bikes = useSelector(state => state.firestore.ordered.bikes);
@@ -50,11 +56,15 @@ function BikeCategoriesList(props){
     newArrivalBikes = bikes.filter (x => x.newArrival === true);
     return(
       <React.Fragment>
-        <h1>Best Sellers</h1>
+        <div style={sectionStyle}>
+          <h1>Best Sellers</h1>
+        </div>
         <div style={bikeListStyle}>
           {bestSellerBikes.map(bike => bikeCard(bike))}
         </div>
-        <h1>New Arrival</h1>
+        <div style={sectionStyle}>
+          <h1>New Arrivals</h1>
+        </div>
         <div style={bikeListStyle}>
           {newArrivalBikes.map(bike => bikeCard(bike))}
         </div>

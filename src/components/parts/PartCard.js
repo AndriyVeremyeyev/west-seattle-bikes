@@ -27,7 +27,7 @@ function PartCard(props){
         <p>{brand}</p>
         <p>{price.toFixed(2)}$</p>
         <p>{category}</p>
-        <button className="btn btn-info" onClick = {() => whenAddToCardClicked(id)}>Add to Card</button>
+        <button className="btn btn-secondary" onClick = {() => whenAddToCardClicked(id)}>Add to Card</button>
       </div>
     </React.Fragment>
   )

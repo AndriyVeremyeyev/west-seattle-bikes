@@ -16,7 +16,8 @@ function NewsList(){
   }
   const sectionStyle={
     backgroundColor: '#F5F5F5',
-    height: '100px'
+    height: '100px',
+    paddingTop: '10px'
   }
 
   const newsCard = (item) => {

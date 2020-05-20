@@ -14,6 +14,11 @@ function BikesPageController(props){
 
   const {handleAddingBikeToCart} = props;
 
+  const sectionStyle={
+    marginTop: '20px',
+    marginBottom: '20px',
+  }
+
   const handleToggleAddBikeForm = () => {
     if (selectedBike != null){
       setAddBikeFormVisible(false);
@@ -110,7 +115,9 @@ function BikesPageController(props){
 
   return(
     <React.Fragment>
-      <h1>Bikes Store</h1>
+      <div style={sectionStyle}>
+        <h2>Bikes Store</h2>
+      </div>
       <button type="button" className="btn btn-secondary" onClick={handleToggleAddBikeForm}>{visibleState.buttonText}</button>
       {visibleState.component}
     </React.Fragment>
