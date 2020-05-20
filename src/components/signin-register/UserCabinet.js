@@ -18,7 +18,6 @@ function UserCabinet(props){
     marginTop: '20px'
   }
 
-
   const purchaseCard = (purchase) => {
     
     return (<PurchaseCard

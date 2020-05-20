@@ -3,7 +3,8 @@ import HomePageController from './home/HomePageController';
 import BikesPageController from './bikes/BikesPageController';
 import PartsPageController from './parts/PartsPageController';
 import {Switch, Route} from 'react-router-dom';
-import SignIn from './signin-register/SignIn';
+// import SignIn from './signin-register/SignIn';
+import SignIn from './signin-register/SignInVasya';
 import Register from './signin-register/Register';
 import PropTypes from 'prop-types';
 import {withFirestore} from 'react-redux-firebase';
@@ -129,7 +130,6 @@ function StoreController(props){
         </Route>
         <Route path="/register">
           <Register
-            onCLickGoogleSignin = {googleSignin}
           />
         </Route>
         <Route path="/bikes">

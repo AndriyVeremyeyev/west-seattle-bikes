@@ -64,7 +64,7 @@ function Header(props){
     } else {
       return (
         <React.Fragment>
-        <NavLink  to="/register">Register</NavLink>
+        {/* <NavLink  to="/register">Register</NavLink> */}
         <NavLink  to="/signin">Sign In</NavLink>
       </React.Fragment>
       )

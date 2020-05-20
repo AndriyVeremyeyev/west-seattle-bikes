@@ -17,7 +17,7 @@ function Signin(props){
     marginTop: '20px'
   }
 
-  function doSignIn(event){
+  const doSignIn = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;

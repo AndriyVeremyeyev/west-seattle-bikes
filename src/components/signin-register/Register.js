@@ -1,13 +1,10 @@
 import React from 'react';
 import firebase from 'firebase/app';
 import { useHistory } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 function Register(props){
 
   let history = useHistory();
-
-  const {onCLickGoogleSignin} = props;
 
   const formStyle = {
     width: "200px",
@@ -76,14 +73,8 @@ function Register(props){
         </div>
         <button className="btn btn-info" type='submit'>Register</button>
       </form>
-      {/* <div style={googleStyle} onClick = {() => onCLickGoogleSignin()}id="my-signin2"></div> */}
-      <button className="btn btn-info" style={googleStyle} onClick = {() => onCLickGoogleSignin()}>Sign in with Google</button>
     </React.Fragment>
   )
-}
-
-Register.propTypes = {
-  onCLickGoogleSignin: PropTypes.func
 }
 
 export default Register;

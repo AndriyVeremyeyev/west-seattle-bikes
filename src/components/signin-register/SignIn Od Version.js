@@ -1,9 +1,9 @@
 import React from "react";
 import firebase from "firebase/app";
 import PropTypes from 'prop-types';
-import {useFirestoreConnect, isLoaded} from 'react-redux-firebase';
-import {useSelector} from 'react-redux';
-import PurchaseCard from './PurchaseCard';
+import {isLoaded} from 'react-redux-firebase';
+// import {useSelector} from 'react-redux';
+// import PurchaseCard from './PurchaseCard';
 import UserCabinet from './UserCabinet';
 
 function Signin(props){
@@ -12,32 +12,30 @@ function Signin(props){
 
   const {handleRemoveBikeFromCart, onCLickGoogleSignin, thisUserId, thisUserName, thisUserEmail} = props;
 
-  useFirestoreConnect([
-    {collection: 'purchases', where: ['owner', '==', thisUserId] }
-  ])
+
 
   const purchases = useSelector(state => state.firestore.ordered.purchases);
   
   const formStyle = {
     width: "200px",
   };
-  const googleStyle={
-    marginTop: '20px'
-  }
+  // const googleStyle={
+  //   marginTop: '20px'
+  // }
 
-  const purchaseCard = (purchase) => {
-    return (<PurchaseCard
-      onCLickRemove = {handleRemoveBikeFromCart}
-      name = {purchase.name}
-      brand = {purchase.brand}
-      price = {purchase.price}
-      quantity = {purchase.quantity}
-      imageUrl = {purchase.imageUrl}
-      id = {purchase.id}
-      key = {purchase.id}
-    />
-    )
-  }
+  // const purchaseCard = (purchase) => {
+  //   return (<PurchaseCard
+  //     onCLickRemove = {handleRemoveBikeFromCart}
+  //     name = {purchase.name}
+  //     brand = {purchase.brand}
+  //     price = {purchase.price}
+  //     quantity = {purchase.quantity}
+  //     imageUrl = {purchase.imageUrl}
+  //     id = {purchase.id}
+  //     key = {purchase.id}
+  //   />
+  //   )
+  // }
 
   function doSignIn(event){
     event.preventDefault();
@@ -84,7 +82,11 @@ function Signin(props){
     )
   } else if (isLoaded(purchases)) {
       return (
-        <UserCabinet/>
+        <UserCabinet
+          handleRemoveBikeFromCart = {handleRemoveBikeFromCart}
+          thisUserName = {thisUserName}
+          thisUserEmail = {thisUserEmail}
+        />
         // <React.Fragment>
         //   <h3>User Information:</h3>
         //   <p>Name: {thisUserName}</p>
