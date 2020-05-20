@@ -26,10 +26,10 @@ function BikeDetails(props){
           <p>Category: {bike.category}</p>
           <p>Availability: {bike.availability}</p>
           <p>Quantity {bike.quantity}pc</p>
-          <p>{bike.details}$</p>
+          <p>{bike.details}</p>
       </div>
-      <button className="btn btn-info" onClick = {() => onClickingEdit()}>Edit Bike</button>
-      <button className="btn btn-info"  onClick = {() => onClickingDelete(bike.id)}>Remove Bike</button>
+      <button className="btn btn-secondary" onClick = {() => onClickingEdit()}>Edit Bike</button>
+      <button className="btn btn-secondary"  onClick = {() => onClickingDelete(bike.id)}>Remove Bike</button>
     </React.Fragment>
   )
 }

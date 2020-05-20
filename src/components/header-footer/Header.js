@@ -1,8 +1,8 @@
 import React from 'react';
-import {Link, NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import firebase from '../../firebase';
 import PropTypes from 'prop-types';
-import Logo from '../../featured/images/Logo/logo_01.jpg'
+// import Logo from '../../featured/images/Logo/logo_01.jpg'
 import './css/Header.css'
 
 function Header(props){
@@ -100,11 +100,13 @@ function Header(props){
     <React.Fragment>
       <div className="header">
         {/* <img src={Logo} alt=''></img> */}
-        <a href="#default" class="logo">West Seattle Bikes</a>
+        <a href="#default" className="logo">West Seattle Bikes</a>
         <div className="header-right">
           <NavLink exact={true} to='/'>Home</NavLink>
           <NavLink to='/bikes'>Bikes</NavLink>
           <NavLink to='/parts'>Parts</NavLink>
+          <NavLink to='/accessories'>Accessories</NavLink>
+          <NavLink to='/news'>News</NavLink>
           {setVisibility()}
         </div>
       </div>

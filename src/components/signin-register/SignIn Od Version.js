@@ -1,7 +1,9 @@
 import React from "react";
 import firebase from "firebase/app";
 import PropTypes from 'prop-types';
-import {isLoaded} from 'react-redux-firebase';
+import {useFirestoreConnect, isLoaded} from 'react-redux-firebase';
+import {useSelector} from 'react-redux';
+import PurchaseCard from './PurchaseCard';
 import UserCabinet from './UserCabinet';
 
 function Signin(props){
@@ -9,12 +11,32 @@ function Signin(props){
   const auth = firebase.auth();
 
   const {handleRemoveBikeFromCart, onCLickGoogleSignin, thisUserId, thisUserName, thisUserEmail} = props;
+
+  useFirestoreConnect([
+    {collection: 'purchases', where: ['owner', '==', thisUserId] }
+  ])
+
+  const purchases = useSelector(state => state.firestore.ordered.purchases);
   
   const formStyle = {
     width: "200px",
   };
   const googleStyle={
     marginTop: '20px'
+  }
+
+  const purchaseCard = (purchase) => {
+    return (<PurchaseCard
+      onCLickRemove = {handleRemoveBikeFromCart}
+      name = {purchase.name}
+      brand = {purchase.brand}
+      price = {purchase.price}
+      quantity = {purchase.quantity}
+      imageUrl = {purchase.imageUrl}
+      id = {purchase.id}
+      key = {purchase.id}
+    />
+    )
   }
 
   function doSignIn(event){
@@ -29,13 +51,7 @@ function Signin(props){
     });
   }
 
-  if (!isLoaded(auth)) {
-    return (
-      <React.Fragment>
-        <h1>Loading...</h1>
-      </React.Fragment>
-    )
-  } else if ((isLoaded(auth)) && (auth.currentUser == null)) {
+  if ((isLoaded(auth)) && (auth.currentUser == null)) {
     return (
       <React.Fragment>
         <h1>Sign In</h1>
@@ -66,16 +82,24 @@ function Signin(props){
         <button className="btn btn-info" style={googleStyle} onClick = {() => onCLickGoogleSignin()}>Sign in with Google</button>
       </React.Fragment>
     )
+  } else if (isLoaded(purchases)) {
+      return (
+        <UserCabinet/>
+        // <React.Fragment>
+        //   <h3>User Information:</h3>
+        //   <p>Name: {thisUserName}</p>
+        //   <p>E-mail: {thisUserEmail}</p>
+        //   <div style={googleStyle}>
+        //     <h4>Shopping Cart:</h4>
+        //     {purchases.map(purchase => purchaseCard(purchase))}
+        //   </div>
+        // </React.Fragment>
+      )
   } else {
     return (
-      <UserCabinet
-        handleRemoveBikeFromCart = {handleRemoveBikeFromCart}
-        thisUserName = {thisUserName}
-        thisUserEmail = {thisUserEmail}
-        thisUserId = {thisUserId}
-      />
+      <p>Is loading ...</p>
     )
-  }
+  } 
 }
 
 Signin.propTypes = {
