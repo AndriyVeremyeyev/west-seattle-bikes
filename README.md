@@ -65,7 +65,7 @@ The product will allow to user
  * CRUD functionality (ability to add, modify and delete items in the store)
  * Data persists in the database
 
-### Things that were implemented 
+### Things from Roadmap that were implemented 
 
  * Ability to upload images to website by admin 
  * User registration and login/sign out to have the ability to add items to cart for possible purchase
