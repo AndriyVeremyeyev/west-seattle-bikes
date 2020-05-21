@@ -11,7 +11,6 @@ function BikesList(props){
   ])
   const bikes = useSelector(state => state.firestore.ordered.bikes);
 
-
   const {onBikeSelection, onAddBiketoCard} = props;
 
   const [roadCategoryOnlyVisible, setRoadCategoryOnlyVisible] = useState(false);
@@ -31,11 +30,16 @@ function BikesList(props){
     gridTemplateColumns: '1fr 5fr',
     gap: '30px'
   }
-
   const bikeListStyle = {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     gap: '30px'
+  }
+  const sectionStyle = {
+    paddingTop: '10px'
+  }
+  const spanStyle = {
+    paddingLeft: '5px'
   }
 
   const handleRoadCategory = () => {
@@ -155,55 +159,58 @@ function BikesList(props){
     return(
       <React.Fragment>
         <div style={pageStyle}>
-          <div>
-            <p>Filter by:</p>
+          <div style={sectionStyle}>
+            <h4>Filter by:</h4>
+            <hr/>
             <p>Category:</p>
             <div className="custom-control custom-checkbox">
               <input type="checkbox" className="custom-control-input" id="customCheck1" onChange={handleRoadCategory}/>
-              <label className="custom-control-label" htmlFor="customCheck1" > Road</label>
+              <span style={spanStyle}>Road</span>
             </div>
             <div className="custom-control custom-checkbox">
               <input type="checkbox" className="custom-control-input" id="customCheck2" onChange={handleMountainCategory}/>
-              <label className="custom-control-label" htmlFor="customCheck1" > Mountain</label>
+              <span style={spanStyle}>Mountain</span>
             </div>
             <div className="custom-control custom-checkbox">
-              <input type="checkbox" className="custom-control-input" id="customCheck2" onChange={handleUrbanCategory}/>
-              <label className="custom-control-label" htmlFor="customCheck1" > Commuter/Urban</label>
+              <input type="checkbox" className="custom-control-input" id="customCheck3" onChange={handleUrbanCategory}/>
+              <span style={spanStyle}>Commuter/Urban</span>
             </div>
+            <hr/>
             <p>Price:</p>
             <div className="custom-control custom-checkbox">
-              <input type="checkbox" className="custom-control-input" id="customCheck1" onChange={handleThousandPrice}/>
-              <label className="custom-control-label" htmlFor="customCheck1">0-1000$</label>
+              <input type="checkbox" className="custom-control-input" id="customCheck4" onChange={handleThousandPrice}/>
+              <span style={spanStyle}>0-1000$</span>
             </div>
             <div className="custom-control custom-checkbox">
-              <input type="checkbox" className="custom-control-input" id="customCheck2" onChange={handleThreeThousandPrice}/>
-              <label className="custom-control-label" htmlFor="customCheck1" >1000.00-3000.00$</label>
+              <input type="checkbox" className="custom-control-input" id="customCheck5" onChange={handleThreeThousandPrice}/>
+              <span style={spanStyle}>1000.00-3000.00$</span>
             </div>
             <div className="custom-control custom-checkbox">
-              <input type="checkbox" className="custom-control-input" id="customCheck2" onChange={handleFiveThousandPrice}/>
-              <label className="custom-control-label" htmlFor="customCheck1" >3000.00-5000.00$</label>
+              <input type="checkbox" className="custom-control-input" id="customCheck6" onChange={handleFiveThousandPrice}/>
+              <span style={spanStyle}>3000.00-5000.00$</span>
             </div>
             <div className="custom-control custom-checkbox">
-              <input type="checkbox" className="custom-control-input" id="customCheck2" onChange={handleMoreFiveThousandPrice}/>
-              <label className="custom-control-label" htmlFor="customCheck1" >>5000.00$</label>
+              <input type="checkbox" className="custom-control-input" id="customCheck7" onChange={handleMoreFiveThousandPrice}/>
+              <span style={spanStyle}>>5000.00$</span>
             </div>
+            <hr/>
             <p>Size:</p>
             <div className="custom-control custom-checkbox">
-              <input type="checkbox" className="custom-control-input" id="customCheck1" onChange={handleSmallSize}/>
-              <label className="custom-control-label" htmlFor="customCheck1">Small</label>
+              <input type="checkbox" className="custom-control-input" id="customCheck8" onChange={handleSmallSize}/>
+              <span style={spanStyle}>Small</span>
             </div>
             <div className="custom-control custom-checkbox">
-              <input type="checkbox" className="custom-control-input" id="customCheck2" onChange={handleMediumSize}/>
-              <label className="custom-control-label" htmlFor="customCheck1" >Medium</label>
+              <input type="checkbox" className="custom-control-input" id="customCheck9" onChange={handleMediumSize}/>
+              <span style={spanStyle}>Medium</span>
             </div>
             <div className="custom-control custom-checkbox">
-              <input type="checkbox" className="custom-control-input" id="customCheck2" onChange={handleLargeSize}/>
-              <label className="custom-control-label" htmlFor="customCheck1" >Large</label>
+              <input type="checkbox" className="custom-control-input" id="customCheck10" onChange={handleLargeSize}/>
+              <span style={spanStyle}>Large</span>
             </div>
             <div className="custom-control custom-checkbox">
-              <input type="checkbox" className="custom-control-input" id="customCheck2" onChange={handleXlargeSize}/>
-              <label className="custom-control-label" htmlFor="customCheck1" >X-Large</label>
-            </div>                           
+              <input type="checkbox" className="custom-control-input" id="customCheck11" onChange={handleXlargeSize}/>
+              <span style={spanStyle}>X-Large</span>
+            </div>
           </div>
           <div style={bikeListStyle}>
             {visibleState()}

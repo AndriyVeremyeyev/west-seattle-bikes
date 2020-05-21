@@ -25,6 +25,7 @@ function PurchaseCard(props){
           <p>{price.toFixed(2)}$</p>
           <p>Quantity: {quantity}pc</p>
           <button className="btn btn-secondary btn-sm" onClick = {() => onCLickRemove(id)}>Remove from Cart</button>
+          <hr/>
         </div>
       </div>
     </React.Fragment>

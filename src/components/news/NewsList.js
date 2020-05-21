@@ -27,7 +27,7 @@ function NewsList(){
   if (isLoaded(news)){
     return(
       <React.Fragment>
-        <h1>Community Bike News</h1>
+        <h2>Community Bike News</h2>
         <div>
           {news.map(item => newsCard(item))}
         </div>
