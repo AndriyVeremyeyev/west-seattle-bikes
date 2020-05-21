@@ -2,6 +2,7 @@ import React from 'react';
 import PartCard from '../parts/PartCard';
 import {useSelector} from 'react-redux';
 import {useFirestoreConnect, isLoaded} from 'react-redux-firebase';
+import {Link} from 'react-router-dom';
 
 function PartsList(){
 
@@ -20,7 +21,14 @@ function PartsList(){
   const sectionStyle={
     backgroundColor: '#F5F5F5',
     height: '100px',
-    paddingTop: '10px'
+    paddingLeft: '20px',
+    paddingTop: '10px',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+  }
+  const buttonSection={
+    paddingLeft: '350px',
+    paddingTop: '25px'
   }
 
   const partCard = (part) => {
@@ -44,7 +52,14 @@ function PartsList(){
     return(
       <React.Fragment>
         <div style={sectionStyle}>
-          <h1>Bike Parts</h1>
+          <div>
+           <h2>Bike Parts</h2>
+          </div>
+          <div style={buttonSection}>
+            <Link to='/parts'>
+              <button className="btn btn-default">See More</button>
+            </Link>
+          </div>
         </div>
         <div style={partsListStyle}>
           {newParts.map(part => partCard(part))}
