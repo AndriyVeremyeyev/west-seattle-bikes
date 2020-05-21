@@ -127,10 +127,12 @@ The product will allow to user
    * React Redux
    * React Router
    * React Slick
+   * react-modal-image
  * JavaScript
  * Firebase
  * CSS
  * Bootstrap
+ * Material-UI
  * Markdown
  * Redux
  * Figma
