@@ -15,7 +15,6 @@ function StoreController(props){
 
   const handleAddingBikeToCart = async (id) => {
     const purchases = await props.firestore.collection('purchases').get().then(snapshot => snapshot.docs.map(doc => doc.data()));
-    console.log(purchases);
     const theSameItem = purchases.filter(item => item.purchaseId === id);
 
     if (theSameItem.length === 0){

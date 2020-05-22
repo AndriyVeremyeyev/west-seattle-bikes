@@ -19,7 +19,8 @@
     * [Minimal Viable Product](#minimal-viable-product)
     * [Product Roadmap](#product-roadmap)
     * [Specs](#specs)
-    * [Wireframe](#specs)
+    * [Component Diagram](#component-diagram)
+    * [Component Diagram](#component-diagram)
 * Getting Started
     * [Prerequisites](#prerequisites)
     * [Installation](#installation)
@@ -85,16 +86,27 @@ The product will allow to user
  * Create mobile version of website in React Native
 
 ### Specs
-
+<details>
+<summary>Expand Specs</summary>
 | Spec | Input | Output |
 | -------------     | ------------- | ------------- |
 |  |  |  |
+</details>
 
-
-## Wireframe
+## Component Diagram
 <details>
-<summary>Expand mainpage Wireframe</summary>
-<image src="./screenshots/main-page.jpg" width="500px"/>
+<summary>Expand Component Diagram</summary>
+<image src="./screenshots/component_diagram.jpg" width="800px"/>
+</details>
+
+## Screenshots
+<details>
+<summary>Expand Top Part of HomePage</summary>
+<image src="./screenshots/home_page_header.jpg" width="800px"/>
+</details>
+<details>
+<summary>Expand Bottom Part of HomePage</summary>
+<image src="./screenshots/home_page_footer.jpg" width="800px"/>
 </details>
 
 ------------------------------

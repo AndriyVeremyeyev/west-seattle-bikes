@@ -11,7 +11,6 @@ function BikeDetails(props){
   const textStyle = {
     fontSize: '16px'
   }
-  // console.log(bike);
 
   return(
     <React.Fragment>
