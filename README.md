@@ -20,11 +20,12 @@
     * [Product Roadmap](#product-roadmap)
     * [Specs](#specs)
     * [Component Diagram](#component-diagram)
-    * [Component Diagram](#component-diagram)
+    * [Screenshots](#screenshots)
 * Getting Started
     * [Prerequisites](#prerequisites)
     * [Installation](#installation)
     * [Use](#use)
+    * [Deployed website](#deployed-website)
 * Auxiliary
     * [Technology](#technology)
     * [Contributors](#contributors)
@@ -94,21 +95,33 @@ The product will allow to user
 </details>
 
 ## Component Diagram
-<details>
-<summary>Expand Component Diagram</summary>
+<!-- <details>
+<summary>Expand Component Diagram</summary> -->
 <image src="./screenshots/component_diagram.jpg" width="800px"/>
-</details>
+<!-- </details> -->
 
 ## Screenshots
-<details>
-<summary>Expand Top Part of HomePage</summary>
+<!-- <details>
+<summary>Expand Top Part of HomePage</summary> -->
+HomePage
 <image src="./screenshots/home_page_header.jpg" width="800px"/>
-</details>
+<!-- </details> -->
 <details>
 <summary>Expand Bottom Part of HomePage</summary>
 <image src="./screenshots/home_page_footer.jpg" width="800px"/>
 </details>
-
+<details>
+<summary>Expand Bikes page with filtering</summary>
+<image src="./screenshots/bikes_page.jpg" width="800px"/>
+</details>
+<details>
+<summary>Expand News page</summary>
+<image src="./screenshots/news_page.jpg" width="800px"/>
+</details>
+<details>
+<summary>Expand Signin page</summary>
+<image src="./screenshots/signin_page.jpg" width="800px"/>
+</details>
 ------------------------------
 
 ## Setup and Use
@@ -130,6 +143,9 @@ The product will allow to user
 
 ### Use
  * Use preferred IDE or Text Editor to review documentation
+
+### Deployed Website
+ * Use can find deployed website by the provided link [here](https://west-seattle-bikes.web.app/)
 
 ------------------------------
 
