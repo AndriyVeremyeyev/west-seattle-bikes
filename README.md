@@ -103,7 +103,7 @@ The product will allow to user
 ## Screenshots
 <!-- <details>
 <summary>Expand Top Part of HomePage</summary> -->
-HomePage
+<p>HomePage</p>
 <image src="./screenshots/home_page_header.jpg" width="800px"/>
 <!-- </details> -->
 <details>
@@ -136,7 +136,7 @@ HomePage
 ### Installation
 
  * Download or clone this repository to your computer,
- * Download and install [npm package](https://www.npmjs.com/get *npm),
+ * Download and install [npm package](https://www.npmjs.com/get-npm),
  * Open terminal
  * Run "npm install" to install npm package
  * Run "npm start" to run the application
